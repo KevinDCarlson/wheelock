@@ -240,16 +240,25 @@ const Sync = {
     finally{ this._busy=false; }
   }
 };
-// merge two stores: per-item latest progress wins; everything else from the newer store
+// merge two stores so nothing is clobbered across devices:
+//  - progress: per item, latest review wins
+//  - overrides (incl. macron ✓ approvals) & custom cards: unioned, newer wins on conflict
+//  - settings / include-exclude lists: from the newer store
 function mergeStores(local, remote){
   if(!remote || typeof remote!=="object") return local;
   const newer=(remote.updatedAt||0) > (local.updatedAt||0) ? remote : local;
+  const older=newer===remote ? local : remote;
   const out={...newer};
   const ids=new Set([...Object.keys(local.progress||{}), ...Object.keys(remote.progress||{})]);
   const prog={};
   for(const id of ids){ const l=(local.progress||{})[id], r=(remote.progress||{})[id];
     prog[id] = !l?r : !r?l : ((r.lastSeen||0)>(l.lastSeen||0)?r:l); }
   out.progress=prog;
+  // overrides (macron approvals, entry fixes): union, newer wins on conflicting id
+  out.overrides={...(older.overrides||{}), ...(newer.overrides||{})};
+  // user-created cards: union by id, newer wins on conflict
+  const uc={}; for(const c of (older.userCards||[])) uc[c.id]=c; for(const c of (newer.userCards||[])) uc[c.id]=c;
+  out.userCards=Object.values(uc);
   const ni={...(local.newIntro||{})};
   for(const [d,v] of Object.entries(remote.newIntro||{})) ni[d]=Math.max(ni[d]||0, v);
   out.newIntro=ni;

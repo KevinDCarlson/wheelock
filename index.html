@@ -128,7 +128,6 @@
       <button data-view="browse">Browse</button>
       <button data-view="settings">Settings</button>
     </nav>
-    <div class="stats" id="stats"></div>
   </header>
   <main id="main"></main>
 </div>
@@ -458,15 +457,8 @@ function setView(v){ view=v;
 }
 document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
 
-function renderStats(){
-  const {dueCount,newCount}=pickQueue();
-  $("#stats").innerHTML="";
-  $("#stats").append(
-    el("span",{}, el("b",{},String(dueCount))," due"),
-    el("span",{}, el("b",{},String(newCount))," new"),
-    el("span",{}, el("b",{},String(store.settings.chMin+"–"+store.settings.chMax))," chapters")
-  );
-  $("#deck-sub").textContent = `${BASE.length} words · ch 1–${MAXCH}`;
+function renderStats(){   // header stats bar removed; just keep the deck subtitle
+  const sub=$("#deck-sub"); if(sub) sub.textContent = `${BASE.length} words · ch 1–${MAXCH}`;
 }
 
 /* ---- study session state ---- */

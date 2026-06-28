@@ -282,6 +282,21 @@ function itemIdsFor(c){ return c.kind==="free" ? [c.id+"|FF"] : [c.id+"|LE", c.i
 function nextDue(c){ let m=Infinity;
   for(const id of itemIdsFor(c)){ const p=store.progress[id]; if(p&&p.due) m=Math.min(m,p.due); }
   return m; }
+// the set of not-yet-started words that today's new-card allowance would introduce
+// now (deck order, capped) — these are "ready to play", i.e. active
+let _newBatch=new Set();
+function refreshNewBatch(){
+  _newBatch=new Set();
+  const pinned=new Set(store.pinned||[]);
+  let left=newAllowance();
+  for(const c of allCards()){
+    if(!eligible(c)) continue;
+    if(itemIdsFor(c).some(id=>store.progress[id])) continue;   // already started → not new
+    if(pinned.has(c.id)){ _newBatch.add(c.id); continue; }     // manual: always
+    if(left<=0) continue;
+    _newBatch.add(c.id); left--;
+  }
+}
 function cardStatus(c){
   if(!eligible(c)) return {label:"not available", cls:"st-locked"};
   if((store.pinned||[]).includes(c.id)) return {label:"active", cls:"st-due"};
@@ -291,6 +306,7 @@ function cardStatus(c){
   const progs=ids.map(id=>store.progress[id]);
   if(progs.some(p=>p && p.due<=now)) return {label:"active",             cls:"st-due"};
   if(progs.some(p=>p))               return {label:"waiting for retest", cls:"st-wait"};
+  if(_newBatch.has(c.id))            return {label:"active", cls:"st-due"};   // today's batch — ready now
   return {label:"queued to add", cls:"st-new"};
 }
 function approveFilled(c){
@@ -760,6 +776,7 @@ function renderBrowse(m){
     el("input",{type:"checkbox",id:"onlyrev",onchange:redraw})," show only filled / needs-review (spot-check macrons)");
   const list=el("div",{}); m.append(top,sortRow,onlyReview,legend,list);
   function redraw(){
+    refreshNewBatch();
     list.innerHTML="";
     const q=normEng($("#q").value), rev=$("#onlyrev").checked, mode=$("#sort").value;
     const now=Date.now();

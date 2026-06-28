@@ -102,6 +102,12 @@
   .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:4px 0 10px}
   .legend span{display:flex;align-items:center;gap:5px}
   .sessbar{text-align:center;color:var(--muted);font-size:13px;margin-bottom:10px}
+  .callout{font-size:13px;line-height:1.45;border-radius:9px;padding:10px 12px;margin-bottom:6px}
+  .callout.warn{color:var(--ink);background:var(--panel);border:1px solid var(--partly)}
+  @supports (background:color-mix(in srgb,red,blue)){
+    .callout.warn{background:color-mix(in srgb,var(--partly) 16%,transparent);
+      border:1px solid color-mix(in srgb,var(--partly) 45%,transparent)}
+  }
   code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:var(--bg);padding:1px 5px;border-radius:4px}
   .search{margin:10px 0}
   .small{font-size:12.5px;color:var(--muted)}
@@ -933,12 +939,17 @@ function renderSync(){
   function refresh(){
     if(Sync.on()){
       const ago=c.lastSync?Math.round((Date.now()-c.lastSync)/60000):null;
-      status.innerHTML="";
+      status.className="desc"; status.innerHTML="";
       status.append("Connected to a private gist (",el("code",{},(Sync.cfg().gistId||"").slice(0,8)),"). ",
         c.lastSync?("Last synced "+(ago<1?"just now":ago+"m ago")+". "):"",
         c.lastError?el("span",{class:"miss"},"Last error: "+c.lastError):"" );
     }else{
-      status.textContent="Off. Enter a GitHub token with the ‘gists’ permission to sync progress between devices. Leave the gist ID blank on the first device to create one; paste that ID on your other devices.";
+      status.className="callout warn"; status.innerHTML="";
+      status.append(el("b",{},"⚠️ Sync isn’t set up."),
+        " Your progress is saved only on this device and could be cleared by the browser "+
+        "(clearing site data, or — on iPhone — not opening the app for ~7 days). "+
+        "Connect a private gist below to back it up and sync across devices. "+
+        "Leave the gist ID blank on the first device to create one, then paste that ID on your others.");
     }
   }
   refresh();
@@ -987,6 +998,8 @@ if(!BASE.length){
   render();
   if(Sync.on()) Sync.pull().catch(e=>console.warn("sync pull failed:",e.message));  // local-first; merge in when it lands
   if(typeof window!=="undefined" && window.addEventListener) window.addEventListener("online",()=>Sync.schedulePush());
+  // ask the browser to keep our data (exempt from automatic eviction where supported)
+  if(typeof navigator!=="undefined" && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
 }
 </script>
 </body>

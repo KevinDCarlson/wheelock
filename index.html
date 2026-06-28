@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Wheelock Vocab</title>
+<style>
+  :root{
+    --bg:#f7f6f3; --panel:#fff; --ink:#1c1a17; --muted:#6b6359; --line:#e3dfd7;
+    --accent:#7a5c3e; --good:#2f7d4f; --mostly:#3c7d8c; --partly:#b07d2b; --wrong:#b04545;
+    --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#1b1916;--panel:#262320;--ink:#ece7df;--muted:#a59c8e;--line:#3a352f;
+      --accent:#c89a6a;--good:#5fbd84;--mostly:#6fb6c6;--partly:#d6a955;--wrong:#e07a7a;
+      --shadow:0 1px 3px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);}
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px 80px}
+  header{position:sticky;top:0;background:var(--bg);z-index:5;padding:12px 0 8px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .brand h1{font-size:18px;margin:0;font-weight:650;letter-spacing:.2px}
+  .brand .sub{color:var(--muted);font-size:13px}
+  nav{display:flex;gap:6px;margin-top:10px}
+  nav button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    padding:8px 6px;border-radius:9px;font-size:14px;cursor:pointer}
+  nav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .stats{display:flex;gap:14px;margin-top:8px;font-size:12.5px;color:var(--muted)}
+  .stats b{color:var(--ink)}
+  main{padding-top:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+  .tag{display:inline-block;font-size:11.5px;color:var(--muted);border:1px solid var(--line);
+    border-radius:999px;padding:2px 9px;margin-right:6px}
+  .prompt{font-size:27px;font-weight:600;margin:14px 0 4px;word-break:break-word}
+  .prompt.lat{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+  .dir{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+  label.fld{display:block;margin:12px 0 4px;font-size:13px;color:var(--muted)}
+  input[type=text]{width:100%;font-size:18px;padding:11px 12px;border:1.5px solid var(--line);
+    border-radius:10px;background:var(--bg);color:var(--ink);font-family:inherit}
+  input[type=text].lat{font-family:"Iowan Old Style",Palatino,Georgia,serif}
+  input:focus{outline:none;border-color:var(--accent)}
+  select{font-size:16px;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+  .row{display:flex;gap:8px;align-items:center}
+  .row .grow{flex:1}
+  .pp{display:flex;gap:8px;align-items:center;margin:7px 0}
+  .pp .lbl{width:74px;font-size:12.5px;color:var(--muted);flex:none}
+  .pp .none{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:4px;flex:none}
+  .pp .nopart{color:var(--muted);font-size:14px;align-self:center}
+  .btn{display:inline-block;border:1px solid var(--accent);background:var(--accent);color:#fff;
+    padding:12px 16px;border-radius:11px;font-size:16px;font-weight:600;cursor:pointer;width:100%}
+  .btn.sec{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn:active{transform:translateY(1px)}
+  .grade{margin-top:16px}
+  .verdict{font-size:15px;font-weight:650;margin-bottom:8px}
+  .answer{font-size:21px;font-family:"Iowan Old Style",Palatino,Georgia,serif;margin:6px 0}
+  .arow{display:flex;gap:10px;align-items:baseline;margin:4px 0}
+  .alabel{font-size:11.5px;color:var(--muted);min-width:84px;flex:none}
+  .answer-inline{font-size:20px;font-family:"Iowan Old Style",Palatino,Georgia,serif}
+  .bad{color:var(--wrong);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  .gloss{color:var(--muted);font-size:15px;margin-top:8px}
+  .note{color:var(--muted);font-size:13px;margin-top:6px}
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+  .tiers button{padding:9px 4px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);
+    color:var(--ink);font-size:13px;cursor:pointer}
+  .tiers button[data-t="0"].on{background:var(--wrong);border-color:var(--wrong);color:#fff}
+  .tiers button[data-t="1"].on{background:var(--partly);border-color:var(--partly);color:#fff}
+  .tiers button[data-t="2"].on{background:var(--mostly);border-color:var(--mostly);color:#fff}
+  .tiers button[data-t="3"].on{background:var(--good);border-color:var(--good);color:#fff}
+  .ok{color:var(--good)} .miss{color:var(--wrong)} .mac{color:var(--partly)}
+  .pos{display:inline-block;font-size:10.5px;color:var(--muted);border:1px solid var(--line);
+    border-radius:5px;padding:0 5px;margin-right:2px;vertical-align:1px}
+  .countdown{color:var(--partly);font-variant-numeric:tabular-nums;margin-left:6px}
+  .help{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
+    border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--muted);
+    font-size:12px;cursor:pointer;vertical-align:middle;margin-left:8px;padding:0}
+  .empty{text-align:center;color:var(--muted);padding:50px 10px}
+  .empty .big{font-size:40px;margin-bottom:10px}
+  .set{margin:14px 0;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .set h3{margin:0 0 4px;font-size:14px}
+  .set .desc{color:var(--muted);font-size:12.5px;margin-bottom:8px}
+  .set .ctl{display:flex;align-items:center;gap:10px}
+  .set input[type=range]{flex:1}
+  .set .val{width:78px;text-align:right;font-variant-numeric:tabular-nums;font-size:14px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chips label{display:flex;align-items:center;gap:5px;font-size:14px;border:1px solid var(--line);
+    padding:5px 9px;border-radius:8px}
+  .browse-item{display:flex;justify-content:space-between;gap:8px;padding:9px 2px;border-bottom:1px solid var(--line)}
+  .browse-item .lat{font-family:Palatino,Georgia,serif}
+  .bi-left{display:flex;align-items:center;gap:9px;flex:1;min-width:0;cursor:pointer}
+  .bi-left>div{min-width:0}
+  .bi-act{display:flex;gap:6px;align-items:center;flex:none}
+  .mini{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;
+    padding:6px 11px;font-size:16px;line-height:1;cursor:pointer;min-width:34px}
+  .mini.ok{color:var(--good);border-color:var(--good)}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+  i.dot{margin-right:6px;vertical-align:middle}
+  .st-due{background:var(--good)} .st-wait{background:var(--partly)}
+  .st-new{background:var(--mostly)} .st-locked{background:var(--line);border:1px solid var(--muted)}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:4px 0 10px}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .sessbar{text-align:center;color:var(--muted);font-size:13px;margin-bottom:10px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:var(--bg);padding:1px 5px;border-radius:4px}
+  .search{margin:10px 0}
+  .small{font-size:12.5px;color:var(--muted)}
+  a{color:var(--accent)}
+  dialog{border:none;border-radius:16px;box-shadow:var(--shadow);background:var(--panel);color:var(--ink);
+    max-width:560px;width:92%;padding:0}
+  dialog::backdrop{background:rgba(0,0,0,.45)}
+  .dlg-body{padding:18px}
+  .dlg-body h2{margin:0 0 12px;font-size:17px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><h1>Wheelock Vocab</h1><span class="sub" id="deck-sub"></span></div>
+    <nav>
+      <button data-view="study" class="active">Study</button>
+      <button data-view="browse">Browse</button>
+      <button data-view="settings">Settings</button>
+    </nav>
+    <div class="stats" id="stats"></div>
+  </header>
+  <main id="main"></main>
+</div>
+
+<dialog id="edit-dlg"><div class="dlg-body" id="edit-body"></div></dialog>
+
+<script src="cards.js"></script>
+<script>
+"use strict";
+/* ============================================================ utilities */
+const $ = (s,r=document)=>r.querySelector(s);
+const el = (t,a={},...kids)=>{const n=document.createElement(t);
+  for(const k in a){ if(k==="class")n.className=a[k]; else if(k==="html")n.innerHTML=a[k];
+    else if(k.startsWith("on"))n.addEventListener(k.slice(2),a[k]); else n.setAttribute(k,a[k]); }
+  for(const c of kids.flat()) if(c!=null) n.append(c.nodeType?c:document.createTextNode(c));
+  return n;};
+const DAY=1440; // minutes
+const todayStr = ()=> new Date().toISOString().slice(0,10);
+
+function stripMac(s){ return (s||"").normalize("NFD").replace(/[̀-ͯ]/g,""); }
+const MACMAP={a:"ā",e:"ē",i:"ī",o:"ō",u:"ū",A:"Ā",E:"Ē",I:"Ī",O:"Ō",U:"Ū"};
+const CASELBL={acc:"+ acc.",abl:"+ abl.",gen:"+ gen.",dat:"+ dat.","acc/abl":"+ acc./abl."};
+// turn "puella." / "puella=" into "puellā"
+function applyMacronTyping(v){ return v.replace(/([aeiouAEIOU])[.=]/g, (m,c)=>MACMAP[c]||m); }
+function normEng(s){
+  return stripMac(String(s||"")).toLowerCase()
+    .replace(/[.,;!?"'()]/g," ")
+    .replace(/\b(to|a|an|the|one'?s|s\.o\.|s\.t\.)\b/g," ")
+    .replace(/\s+/g," ").trim();
+}
+function normLat(s){ return String(s||"").trim().replace(/\s+/g," "); }
+
+/* ============================================================ storage seam */
+const KEY="wheelock_v1";
+const DEFAULT_SETTINGS={
+  chMin:1, chMax:3,
+  dirLE:true, dirEL:true,
+  newPerDay:12,
+  firstFully:1,      // days, first pass at "fully"
+  graduateFully:4,   // days, second pass
+  mostlyFactor:0.6,  // "mostly" earns a shorter interval
+  easeBonus:0.1,
+  partlyMin:10,      // minutes (same-session relearn)
+  againMin:1,        // minutes (wrong → see again soon)
+  maxInterval:365    // days, cap
+};
+function blankStore(){ const settings={...DEFAULT_SETTINGS}; settings.chMax=40;  // full deck by default
+  return {schema:1, settings, progress:{}, overrides:{}, userCards:[], newIntro:{}, pinned:[], included:[], disabled:[]}; }
+
+const Storage = {
+  load(){ try{ const s=JSON.parse(localStorage.getItem(KEY));
+      if(!s) return blankStore();
+      s.settings={...DEFAULT_SETTINGS, ...(s.settings||{})};
+      return {...blankStore(), ...s};
+    }catch(e){ return blankStore(); } },
+  save(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
+};
+let store = Storage.load();
+function persist(){ store.updatedAt=Date.now(); Storage.save(store); Sync.schedulePush(); }
+
+/* ============================================================ sync (GitHub Gist)
+   Local-first: localStorage is the source of truth; this pushes/pulls a private
+   gist when configured. Same load/save seam — swappable for Firebase later. */
+const GFILE="wheelock-progress.json";
+const Sync = {
+  KEY:"wheelock_sync",
+  cfg(){ try{ return JSON.parse(localStorage.getItem(this.KEY))||{}; }catch(e){ return {}; } },
+  setCfg(c){ localStorage.setItem(this.KEY, JSON.stringify({...this.cfg(), ...c})); },
+  on(){ const c=this.cfg(); return !!(c.enabled && c.token && c.gistId); },
+  _timer:null, _busy:false,
+  async gh(url, opts){
+    const c=this.cfg();
+    const r=await fetch(url,{...opts, headers:{Authorization:"Bearer "+c.token,
+      Accept:"application/vnd.github+json", "Content-Type":"application/json", ...(opts&&opts.headers)}});
+    if(!r.ok) throw new Error("GitHub "+r.status+" — "+(await r.text()).slice(0,140));
+    return r.json();
+  },
+  async createGist(){
+    const g=await this.gh("https://api.github.com/gists",{method:"POST",
+      body:JSON.stringify({description:"Wheelock vocab progress", public:false,
+        files:{[GFILE]:{content:JSON.stringify(store)}}})});
+    this.setCfg({gistId:g.id}); return g.id;
+  },
+  async pull(){
+    const c=this.cfg(); if(!c.token||!c.gistId) return;
+    const g=await this.gh("https://api.github.com/gists/"+c.gistId,{method:"GET"});
+    const f=g.files&&g.files[GFILE]; if(!f) return;
+    let content=f.content;
+    if(f.truncated && f.raw_url){ const r=await fetch(f.raw_url,{headers:{Authorization:"Bearer "+c.token}}); content=await r.text(); }
+    const remote=JSON.parse(content);
+    store=mergeStores(store, remote); Storage.save(store);
+    session=null; render();
+  },
+  async push(){
+    const c=this.cfg(); if(!c.token||!c.gistId) return;
+    await this.gh("https://api.github.com/gists/"+c.gistId,{method:"PATCH",
+      body:JSON.stringify({files:{[GFILE]:{content:JSON.stringify(store)}}})});
+    this.setCfg({lastSync:Date.now()});
+  },
+  schedulePush(){
+    if(!this.on() || (typeof navigator!=="undefined" && navigator.onLine===false)) return;
+    clearTimeout(this._timer);
+    this._timer=setTimeout(()=>{ this.push().catch(e=>console.warn("sync push failed:",e.message)); }, 2500);
+  },
+  async syncNow(){
+    if(this._busy) return; this._busy=true;
+    try{ await this.pull(); await this.push(); this.setCfg({lastSync:Date.now(), lastError:""}); }
+    catch(e){ this.setCfg({lastError:e.message}); throw e; }
+    finally{ this._busy=false; }
+  }
+};
+// merge two stores: per-item latest progress wins; everything else from the newer store
+function mergeStores(local, remote){
+  if(!remote || typeof remote!=="object") return local;
+  const newer=(remote.updatedAt||0) > (local.updatedAt||0) ? remote : local;
+  const out={...newer};
+  const ids=new Set([...Object.keys(local.progress||{}), ...Object.keys(remote.progress||{})]);
+  const prog={};
+  for(const id of ids){ const l=(local.progress||{})[id], r=(remote.progress||{})[id];
+    prog[id] = !l?r : !r?l : ((r.lastSeen||0)>(l.lastSeen||0)?r:l); }
+  out.progress=prog;
+  const ni={...(local.newIntro||{})};
+  for(const [d,v] of Object.entries(remote.newIntro||{})) ni[d]=Math.max(ni[d]||0, v);
+  out.newIntro=ni;
+  out.settings={...DEFAULT_SETTINGS, ...(newer.settings||{})};
+  out.updatedAt=Math.max(local.updatedAt||0, remote.updatedAt||0);
+  return out;
+}
+
+/* ============================================================ deck */
+const BASE = (window.WHEELOCK_CARDS && window.WHEELOCK_CARDS.cards) || [];
+// effective card = base merged with any user override
+function effCard(c){ const o=store.overrides[c.id]; return o?{...c,...o}:c; }
+function allCards(){ return BASE.map(effCard).concat(store.userCards); }
+const MAXCH = BASE.reduce((m,c)=>Math.max(m,c.chapter||0),0);
+
+// ----- eligibility: in chapter range (or manually included) and not excluded -----
+function cardInRange(c){ if(c.kind==="free") return true;
+  return (c.chapter||0)>=store.settings.chMin && (c.chapter||0)<=store.settings.chMax; }
+function eligible(c){                       // eligible = auto-added daily AND tested
+  if((store.disabled||[]).includes(c.id)) return false;
+  return cardInRange(c) || (store.included||[]).includes(c.id);
+}
+function activateNow(c){                    // "+" : play this card now, regardless of cap/range
+  store.disabled=(store.disabled||[]).filter(x=>x!==c.id);
+  store.included=store.included||[]; if(!cardInRange(c)&&!store.included.includes(c.id)) store.included.push(c.id);
+  store.pinned=store.pinned||[]; if(!store.pinned.includes(c.id)) store.pinned.push(c.id);
+  session=null; persist();
+}
+function excludeCard(c){                    // "−" : never auto-add / test (keeps progress)
+  store.disabled=store.disabled||[]; if(!store.disabled.includes(c.id)) store.disabled.push(c.id);
+  store.included=(store.included||[]).filter(x=>x!==c.id);
+  store.pinned=(store.pinned||[]).filter(x=>x!==c.id);
+  session=null; persist();
+}
+function itemIdsFor(c){ return c.kind==="free" ? [c.id+"|FF"] : [c.id+"|LE", c.id+"|EL"]; }
+function nextDue(c){ let m=Infinity;
+  for(const id of itemIdsFor(c)){ const p=store.progress[id]; if(p&&p.due) m=Math.min(m,p.due); }
+  return m; }
+function cardStatus(c){
+  if(!eligible(c)) return {label:"not available", cls:"st-locked"};
+  if((store.pinned||[]).includes(c.id)) return {label:"active", cls:"st-due"};
+  const now=Date.now();
+  const ids=itemIdsFor(c).filter(id=> c.kind==="free" ? true
+      : id.endsWith("LE") ? store.settings.dirLE : store.settings.dirEL);
+  const progs=ids.map(id=>store.progress[id]);
+  if(progs.some(p=>p && p.due<=now)) return {label:"active",             cls:"st-due"};
+  if(progs.some(p=>p))               return {label:"waiting for retest", cls:"st-wait"};
+  return {label:"queued to add", cls:"st-new"};
+}
+function approveFilled(c){
+  store.overrides[c.id]={...(store.overrides[c.id]||{}), filled:false, needs_review:false};
+  persist();
+}
+
+// study items: each vocab card → up to two directional items; free-form → one
+function buildItems(){
+  const S=store.settings, out=[];
+  for(const c of allCards()){
+    if(!eligible(c)) continue;
+    if(c.kind==="free"){ out.push({id:c.id+"|FF", card:c, mode:"FF"}); continue; }
+    if(S.dirLE) out.push({id:c.id+"|LE", card:c, mode:"LE"});
+    if(S.dirEL) out.push({id:c.id+"|EL", card:c, mode:"EL"});
+  }
+  return out;
+}
+
+/* ============================================================ SRS */
+function schedule(prev, tier){
+  const S=store.settings;
+  let ease=prev?prev.ease:2.5, reps=prev?prev.reps:0, lapses=prev?prev.lapses:0;
+  let interval; // minutes
+  const prevDays = prev? prev.interval/DAY : 0;
+  if(tier===3){            // fully → pass, long
+    ease=Math.min(3.0, ease+S.easeBonus);
+    interval = (reps===0 ? S.firstFully : reps===1 ? S.graduateFully
+              : Math.min(S.maxInterval, prevDays*ease)) * DAY;
+    reps++;
+  }else if(tier===2){      // mostly → pass, shorter
+    interval = (reps===0 ? Math.max(S.firstFully*S.mostlyFactor,0.5)
+              : Math.min(S.maxInterval, prevDays*ease*S.mostlyFactor)) * DAY;
+    reps++;
+  }else if(tier===1){      // partly → lapse, relearn this session
+    ease=Math.max(1.3, ease-0.2); lapses++; interval=S.partlyMin;
+  }else{                   // wrong → reset
+    ease=Math.max(1.3, ease-0.2); lapses++; reps=0; interval=S.againMin;
+  }
+  return {ease,reps,lapses,interval,due:Date.now()+interval*60000,
+          lastTier:tier,lastSeen:Date.now()};
+}
+function fmtInterval(min){
+  if(min<60) return Math.round(min)+"m";
+  if(min<DAY) return Math.round(min/60)+"h";
+  const d=min/DAY; return d<30?Math.round(d)+"d":d<365?Math.round(d/30)+"mo":(d/365).toFixed(1)+"y";
+}
+
+/* queue: due items + a capped number of new WORDS, shuffled, no two sides of
+   the same card back-to-back. "Pinned" cards (manual Study-now) bypass the cap. */
+function newAllowance(){ return Math.max(0, store.settings.newPerDay - (store.newIntro[todayStr()]||0)); }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function spaceOut(q){ // push apart adjacent items belonging to the same word
+  for(let i=1;i<q.length;i++){
+    if(q[i].card.id===q[i-1].card.id){
+      let k=i+1; while(k<q.length && q[k].card.id===q[i-1].card.id) k++;
+      if(k<q.length){ const t=q[i]; q[i]=q[k]; q[k]=t; }
+    }
+  }
+  return q;
+}
+function pickQueue(){
+  const now=Date.now(), items=buildItems();
+  const pinned=new Set(store.pinned||[]);
+  const dueItems=[], fresh=[];
+  for(const it of items){
+    const p=store.progress[it.id];
+    if(!p) fresh.push(it);
+    else if(p.due<=now) dueItems.push(it);
+  }
+  // introduce new cards by WORD: both directions of an allowed word come in together
+  let wordsLeft=newAllowance(); const usedWords=new Set(); const newItems=[];
+  for(const it of fresh){
+    const b=it.card.id;
+    if(pinned.has(b)){ newItems.push(it); usedWords.add(b); continue; }   // manual: always
+    if(!usedWords.has(b)){ if(wordsLeft<=0) continue; usedWords.add(b); wordsLeft--; }
+    newItems.push(it);
+  }
+  // include pinned cards even if already learned and not yet due
+  const inQ=new Set([...dueItems,...newItems].map(x=>x.id));
+  const pinnedExtra=items.filter(it=>pinned.has(it.card.id)&&!inQ.has(it.id));
+  let q=spaceOut(shuffle(dueItems).concat(shuffle(newItems)).concat(pinnedExtra));
+  // surface manually-pinned cards first
+  if(pinned.size) q=q.slice().sort((a,b)=>(pinned.has(b.card.id)?1:0)-(pinned.has(a.card.id)?1:0));
+  return {queue:q, dueCount:dueItems.length, newCount:usedWords.size};
+}
+
+/* ============================================================ grading: L→E */
+function gradeLE(card, raw){
+  const groups=(card.english&&card.english.groups)||[];
+  const tokens=normEng(raw).split(/[,;\/]| or /).map(s=>s.trim()).filter(Boolean);
+  const whole=normEng(raw);
+  const synHit=(syn)=>{ const n=normEng(syn);
+    return n && (tokens.includes(n) || (whole && (whole===n || (" "+whole+" ").includes(" "+n+" ")))); };
+  let totalSyn=0, hitSyn=0, groupsHit=0, groupsTotal=groups.length;
+  for(const g of groups){ let gh=false;
+    for(const syn of g){ totalSyn++; if(synHit(syn)){hitSyn++;gh=true;} }
+    if(gh)groupsHit++; }
+  let tier;
+  if(hitSyn===0) tier=0;
+  else if(hitSyn===totalSyn) tier=3;            // got every translation
+  else if(groupsHit===groupsTotal) tier=2;      // ≥1 per semicolon group
+  else tier=1;                                   // got something
+  return {tier, detail:`${hitSyn}/${totalSyn} translations, ${groupsHit}/${groupsTotal} groups`};
+}
+
+/* ============================================================ grading: E→L (slot based) */
+// compare one expected form to a player form. returns 'exact' | 'base' | 'miss'
+function cmpForm(exp, got){
+  exp=normLat(exp); got=normLat(got);
+  if(!exp) return got?"miss":"exact";
+  if(exp===got) return "exact";
+  if(stripMac(exp).toLowerCase()===stripMac(got).toLowerCase()) return "base";
+  return "miss";
+}
+// 'exact' = right incl. macrons, 'base' = right letters but a macron slip, 'miss' = wrong
+function tierFromSlots(results){
+  const n=results.length;
+  if(!n) return 3;
+  if(results.every(r=>r==="exact")) return 3;        // fully: everything perfect
+  if(results.every(r=>r!=="miss"))  return 2;        // all forms right, only macron slips → mostly
+  const right=results.filter(r=>r!=="miss").length;  // forms correct (exact or macron-slip)
+  const frac=right/n;
+  if(frac>=0.75) return 2;                            // e.g. 3 of 4 → mostly
+  if(frac>=0.40) return 1;                            // e.g. 2 of 4 → partly
+  return 0;                                           // wrong
+}
+
+/* ============================================================ views */
+let view="study";
+function setView(v){ view=v;
+  for(const b of document.querySelectorAll("nav button")) b.classList.toggle("active",b.dataset.view===v);
+  render();
+}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
+
+function renderStats(){
+  const {dueCount,newCount}=pickQueue();
+  $("#stats").innerHTML="";
+  $("#stats").append(
+    el("span",{}, el("b",{},String(dueCount))," due"),
+    el("span",{}, el("b",{},String(newCount))," new"),
+    el("span",{}, el("b",{},String(store.settings.chMin+"–"+store.settings.chMax))," chapters")
+  );
+  $("#deck-sub").textContent = `${BASE.length} words · ch 1–${MAXCH}`;
+}
+
+/* ---- study session state ---- */
+let session=null;
+function startSession(){ const {queue}=pickQueue(); session={queue,i:0}; }
+function currentItem(){ return session&&session.queue[session.i]; }
+
+// Enter triggers whatever the current primary action is (Submit, then Next)
+let primaryAction=null;
+document.addEventListener("keydown",e=>{
+  if(e.key==="Enter" && primaryAction && !e.isComposing){ e.preventDefault(); primaryAction(); }
+});
+
+function render(){
+  primaryAction=null;
+  renderStats();
+  const m=$("#main"); m.innerHTML="";
+  if(view==="study") return renderStudy(m);
+  if(view==="browse") return renderBrowse(m);
+  if(view==="settings") return renderSettings(m);
+}
+
+/* ============================================================ STUDY view */
+function renderStudy(m){
+  if(!session) startSession();
+  // refresh queue if exhausted (relearned cards may now be due)
+  if(session.i>=session.queue.length){ startSession(); }
+  const it=currentItem();
+  if(!it){
+    m.append(el("div",{class:"empty"},
+      el("div",{class:"big"},"✦"),
+      el("div",{},"All caught up for now."),
+      el("div",{class:"small",html:"New cards and reviews will appear as they come due.<br>Adjust chapter range or new-cards/day in Settings."})));
+    return;
+  }
+  const remain=session.queue.length - session.i;
+  m.append(el("div",{class:"sessbar"}, `${remain} card${remain===1?"":"s"} left to review`));
+  const c=it.card;
+  if(it.mode==="LE") return studyLE(m,it,c);
+  if(it.mode==="EL") return studyEL(m,it,c);
+  if(it.mode==="FF") return studyFF(m,it,c);
+}
+
+function header(c, dir){
+  return el("div",{},
+    el("div",{class:"dir"},dir),
+    el("div",{}, el("span",{class:"tag"},"ch "+(c.chapter||"–")),
+                 el("span",{class:"tag"},c.pos||c.kind||"")));
+}
+function gradePanel(card, it, computedTier){
+  const verdictNames=["Incorrect","Partly correct","Mostly correct","Fully correct"];
+  const verdictCls=["wrong","partly","mostly","ok"];
+  const grade=el("div",{class:"grade"});
+  let chosen=computedTier;
+  grade.append(el("div",{class:"verdict "+verdictCls[computedTier]},verdictNames[computedTier]));
+  return {grade,getTier:()=>chosen,
+    mountTiers(answerNode){
+      grade.append(answerNode);
+      const tiers=el("div",{class:"tiers"});
+      ["Wrong","Partly","Mostly","Fully"].forEach((lab,t)=>{
+        const b=el("button",{"data-t":t,onclick:()=>{chosen=t;
+          tiers.querySelectorAll("button").forEach(x=>x.classList.toggle("on",+x.dataset.t===t));}},lab);
+        if(t===computedTier)b.classList.add("on");
+        tiers.append(b);
+      });
+      grade.append(el("div",{class:"note"},"Auto-graded — tap to override, then Next."));
+      grade.append(tiers);
+      grade.append(el("button",{class:"btn",onclick:()=>applyGrade(it,chosen)},"Next  ›"));
+      card.append(grade);
+      primaryAction=()=>applyGrade(it,chosen);   // Enter now advances
+    }};
+}
+const MACRON_HELP='Type macrons with a trailing “.” or “=” — e.g. puella. → puellā';
+function macronHelp(){
+  const note=el("div",{class:"note",style:"display:none"},MACRON_HELP);
+  const q=el("button",{class:"help",type:"button",title:MACRON_HELP,
+    onclick:()=>{note.style.display=note.style.display==="none"?"block":"none";}},"?");
+  return {q,note};
+}
+function applyGrade(it,tier){
+  const base=it.card.id;
+  // count a new word only once (not once per direction)
+  const wordSeen=!!(store.progress[base+"|LE"]||store.progress[base+"|EL"]);
+  const wasNew=!store.progress[it.id];
+  store.progress[it.id]=schedule(store.progress[it.id],tier);
+  if(wasNew && !wordSeen){ const t=todayStr(); store.newIntro[t]=(store.newIntro[t]||0)+1; }
+  if(store.pinned&&store.pinned.includes(base)) store.pinned=store.pinned.filter(x=>x!==base);
+  persist();
+  session.i++;
+  render();
+}
+
+/* ---- L→E ---- */
+function studyLE(m,it,c){
+  const card=el("div",{class:"card"});
+  card.append(header(c,"Latin → English"));
+  card.append(el("div",{class:"prompt lat"},c.latin));
+  const inp=el("input",{type:"text",placeholder:"English meaning(s)…",autocomplete:"off",
+    autocorrect:"off",autocapitalize:"off",spellcheck:"false"});
+  card.append(el("label",{class:"fld"},"Your answer (separate multiple with commas)"));
+  card.append(inp);
+  const submit=el("button",{class:"btn",onclick:go},"Submit");
+  card.append(el("div",{style:"height:12px"}),submit);
+  m.append(card);
+  primaryAction=go;
+  setTimeout(()=>inp.focus(),30);
+  function go(){
+    const res=gradeLE(c,inp.value);
+    inp.disabled=true; submit.remove();
+    const gp=gradePanel(card,it,res.tier);
+    const ans=el("div",{},
+      el("div",{class:"answer"},c.english.raw),
+      el("div",{class:"note"},res.detail));
+    if(c.english.notes&&c.english.notes.length)
+      ans.append(el("div",{class:"note"},"ℹ "+c.english.notes.join(" · ")));
+    gp.mountTiers(ans);
+  }
+}
+
+/* ---- E→L ---- */
+function studyEL(m,it,c){
+  const card=el("div",{class:"card"});
+  const hb=macronHelp();
+  card.append(header(c,"English → Latin"));
+  card.append(el("div",{class:"prompt"}, c.english.raw, hb.q));
+  card.append(hb.note);
+  const slots=c.slots||{kind:"text",forms:[c.latin]};
+  const fields=[]; // {get:()=>({form, exists})}
+  const body=el("div",{});
+
+  function macInput(ph,cls){
+    const i=el("input",{type:"text",class:"lat "+(cls||""),placeholder:ph||"",autocomplete:"off",
+      autocorrect:"off",autocapitalize:"off",spellcheck:"false"});
+    i.addEventListener("input",()=>{
+      const s=i.selectionStart, before=i.value;
+      const after=applyMacronTyping(before);
+      if(after!==before){ i.value=after; const d=before.length-after.length; i.setSelectionRange(s-d,s-d); }
+    });
+    return i;
+  }
+
+  if(slots.kind==="verb"){
+    const labels=["1st (pres.)","2nd (inf.)","3rd (perf.)","4th (supine)"];
+    slots.parts.forEach((p,idx)=>{
+      const lbl=labels[idx]||("part "+(idx+1));
+      if(p.exists){
+        const i=macInput("");
+        body.append(el("div",{class:"pp"}, el("span",{class:"lbl"},lbl), el("span",{class:"grow"},i)));
+        fields.push({label:lbl, exp:p.text, expExists:true, get:()=>({form:i.value, none:false})});
+      }else{                                   // nonexistent part: shown, not asked or graded
+        body.append(el("div",{class:"pp"}, el("span",{class:"lbl"},lbl),
+          el("span",{class:"grow nopart"},"— (no such part)")));
+      }
+    });
+  }else if(slots.kind==="noun"){
+    const nom=macInput(slots.genitive?"nominative":"form");
+    body.append(el("label",{class:"fld"},slots.genitive?"nominative":"form"),nom);
+    fields.push({kind:"nom",label:slots.genitive?"nominative":"form",exp:slots.nominative,get:()=>nom.value});
+    if(slots.genitive){ const gen=macInput("genitive");
+      body.append(el("label",{class:"fld"},"genitive"),gen);
+      fields.push({kind:"gen",label:"genitive",exp:slots.genitive,get:()=>gen.value}); }
+    const g=el("select",{},...["—","m","f","n","m/f","other"].map(o=>el("option",{value:o==="—"?"":o},o)));
+    body.append(el("label",{class:"fld"},"gender"),g);
+    fields.push({kind:"gender",label:"gender",exp:(slots.gender||"").toLowerCase(),get:()=>g.value.toLowerCase()});
+  }else if(slots.kind==="prep"){
+    const i=macInput(slots.forms.length>1?"forms (e.g. ex, ē)":"preposition");
+    body.append(el("label",{class:"fld"},"preposition"),i);
+    fields.push({kind:"prepform",label:"preposition",forms:slots.forms,get:()=>i.value});
+    const cs=el("select",{},...[["","—"],["acc","accusative"],["abl","ablative"],
+      ["gen","genitive"],["dat","dative"],["acc/abl","accusative or ablative"]]
+      .map(([v,t])=>el("option",{value:v},t)));
+    body.append(el("label",{class:"fld"},"takes (case)"),cs);
+    fields.push({kind:"prepcase",label:"case",exp:slots.case,get:()=>cs.value});
+  }else if(slots.kind==="adjective"){
+    slots.forms.forEach((f,idx)=>{ const i=macInput(idx===0?"masculine":"");
+      body.append(el("label",{class:"fld"},idx===0?"forms (m, f, n …)":""),i);
+      fields.push({label:idx===0?"forms":("form "+(idx+1)),exp:f,get:()=>i.value}); });
+  }else{ // text: single full-citation field
+    const i=macInput("full entry");
+    body.append(el("label",{class:"fld"},"full entry"),i);
+    fields.push({label:"entry",exp:(slots.forms||[c.latin]).join(", "),get:()=>i.value});
+  }
+
+  card.append(body);
+  const submit=el("button",{class:"btn",onclick:go},"Submit");
+  card.append(el("div",{style:"height:12px"}),submit);
+  m.append(card);
+  primaryAction=go;
+  setTimeout(()=>{const f=body.querySelector("input[type=text]"); if(f)f.focus();},30);
+
+  function go(){
+    submit.remove();
+    body.querySelectorAll("input,select").forEach(x=>x.disabled=true);
+    const results=[], disp=[];
+    for(const f of fields){
+      let res, expShown, gotShown;
+      if(slots.kind==="verb"){
+        const {form,none}=f.get(); const got=applyMacronTyping(form);
+        res = !f.expExists ? (none?"exact":"miss") : (none?"miss":cmpForm(f.exp,got));
+        expShown = f.expExists ? f.exp : "—";
+        gotShown = none ? "—" : got;
+      }else if(f.kind==="gender"||f.kind==="prepcase"){
+        res = !f.exp?"exact":(normLat(f.get()).toLowerCase()===normLat(f.exp).toLowerCase()?"exact":"miss");
+        expShown=f.exp||"—"; gotShown=f.get()||"—";
+      }else if(f.kind==="prepform"){
+        const got=applyMacronTyping(f.get());
+        res="miss"; expShown=f.forms.join(", ");          // pick the closest accepted form to show
+        for(const cand of [f.forms.join(", "),...f.forms]){ const r=cmpForm(cand,got);
+          if(r==="exact"){res="exact";expShown=cand;break;} if(r==="base"&&res!=="base"){res="base";expShown=cand;} }
+        gotShown=got;
+      }else{
+        const got=applyMacronTyping(f.get()); res=cmpForm(f.exp,got); expShown=f.exp; gotShown=got;
+      }
+      results.push(res);
+      disp.push({label:f.label, exp:expShown, got:gotShown, res});
+    }
+    const tier=tierFromSlots(results);
+    const gp=gradePanel(card,it,tier);
+    const ans=el("div",{});
+    disp.forEach(d=>{
+      ans.append(el("div",{class:"arow"},
+        el("span",{class:"alabel"}, d.label),
+        diffSpan(d.exp, d.got)));
+    });
+    ans.append(el("div",{class:"gloss"},c.english.raw));
+    ans.append(el("div",{class:"note"},resultLegend(results)));
+    gp.mountTiers(ans);
+  }
+}
+// highlight the characters of the correct form that the answer got wrong (red)
+function diffSpan(exp, got){
+  exp=String(exp||""); got=String(got||"");
+  const n=exp.length, m=got.length;
+  const dp=Array.from({length:n+1},()=>new Array(m+1).fill(0));
+  for(let i=1;i<=n;i++)for(let j=1;j<=m;j++)
+    dp[i][j]= exp[i-1]===got[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
+  const ok=new Array(n).fill(false); let i=n,j=m;
+  while(i>0&&j>0){ if(exp[i-1]===got[j-1]){ok[i-1]=true;i--;j--;}
+    else if(dp[i-1][j]>=dp[i][j-1])i--; else j--; }
+  const span=el("span",{class:"answer-inline"});
+  for(let k=0;k<exp.length;k++)
+    span.append(ok[k]?document.createTextNode(exp[k]):el("span",{class:"bad"},exp[k]));
+  return span;
+}
+function resultLegend(results){
+  const ex=results.filter(r=>r==="exact").length, ba=results.filter(r=>r==="base").length;
+  const parts=[`${ex}/${results.length} exact`];
+  if(ba)parts.push(`${ba} right but macron slips`);
+  return parts.join(" · ");
+}
+
+/* ---- free-form ---- */
+function studyFF(m,it,c){
+  const card=el("div",{class:"card"});
+  const hb=macronHelp();
+  card.append(header(c,"Free-form"));
+  card.append(el("div",{class:"prompt"}, c.prompt, hb.q));
+  card.append(hb.note);
+  const i=el("input",{type:"text",class:"lat",placeholder:"answer…",autocomplete:"off",
+    autocorrect:"off",autocapitalize:"off",spellcheck:"false"});
+  i.addEventListener("input",()=>{ const s=i.selectionStart,b=i.value,a=applyMacronTyping(b);
+    if(a!==b){i.value=a;const d=b.length-a.length;i.setSelectionRange(s-d,s-d);} });
+  card.append(el("label",{class:"fld"},"Your answer"),i);
+  const submit=el("button",{class:"btn",onclick:go},"Submit"); card.append(el("div",{style:"height:12px"}),submit);
+  m.append(card); primaryAction=go; setTimeout(()=>i.focus(),30);
+  function go(){
+    submit.remove(); i.disabled=true;
+    const acc=(c.answers||[]).map(normLat);
+    const got=normLat(applyMacronTyping(i.value));
+    const exact=acc.includes(got);
+    const base=acc.some(a=>stripMac(a).toLowerCase()===stripMac(got).toLowerCase());
+    const tier=exact?3:base?2:0;
+    const gp=gradePanel(card,it,tier);
+    const gotRaw=applyMacronTyping(i.value);
+    // show the closest acceptable answer with mistaken characters in red
+    let bestAns=(c.answers||[])[0]||"", bestScore=-1;
+    for(const a of (c.answers||[])){ let s=0; const x=stripMac(a).toLowerCase(),y=stripMac(gotRaw).toLowerCase();
+      for(let k=0;k<Math.min(x.length,y.length);k++) if(x[k]===y[k]) s++; if(s>bestScore){bestScore=s;bestAns=a;} }
+    const others=(c.answers||[]).filter(a=>a!==bestAns);
+    const ans=el("div",{},
+      el("div",{class:"arow"}, el("span",{class:"alabel"},"answer"), diffSpan(bestAns, gotRaw)),
+      others.length?el("div",{class:"note"},"also accepted: "+others.join(", ")):null,
+      c.noteText?el("div",{class:"note"},c.noteText):null);
+    gp.mountTiers(ans);
+  }
+}
+
+/* ============================================================ BROWSE / manage */
+const STATUS_RANK={"active":0,"waiting for retest":1,"queued to add":2,"not available":3};
+function sortKey(c){ return stripMac(c.kind==="free"?(c.prompt||""):(c.latin||"")).toLowerCase(); }
+function cardPos(c){ return c.kind==="free"?"free-form":(c.split_kind||c.pos||""); }
+function sortCards(arr, mode){
+  if(mode==="az")  return arr.sort((a,b)=>sortKey(a).localeCompare(sortKey(b)));
+  if(mode==="pos") return arr.sort((a,b)=>cardPos(a).localeCompare(cardPos(b))||sortKey(a).localeCompare(sortKey(b)));
+  if(mode==="chapter") return arr.sort((a,b)=>((a.chapter||999)-(b.chapter||999))||sortKey(a).localeCompare(sortKey(b)));
+  // default: by colour/status; waiting sub-sorted by time-to-retest
+  return arr.sort((a,b)=>{
+    const sa=cardStatus(a).label, sb=cardStatus(b).label;
+    if(STATUS_RANK[sa]!==STATUS_RANK[sb]) return STATUS_RANK[sa]-STATUS_RANK[sb];
+    if(sa==="waiting for retest") return nextDue(a)-nextDue(b);
+    return sortKey(a).localeCompare(sortKey(b));
+  });
+}
+function renderBrowse(m){
+  const top=el("div",{},
+    el("button",{class:"btn",onclick:()=>openEdit(null)},"+ New free-form card"),
+    el("div",{class:"search"}, el("input",{type:"text",id:"q",placeholder:"Search Latin or English…",
+       autocomplete:"off",oninput:redraw})));
+  const sortRow=el("div",{class:"row",style:"margin:2px 0 4px;gap:8px"},
+    el("span",{class:"small"},"sort:"),
+    el("select",{id:"sort",onchange:redraw},
+      el("option",{value:"status"},"colour / status"),
+      el("option",{value:"chapter"},"chapter"),
+      el("option",{value:"az"},"A → Z"),
+      el("option",{value:"pos"},"part of speech")));
+  const legend=el("div",{class:"legend"},
+    el("span",{},el("i",{class:"dot st-due"}),"active"),
+    el("span",{},el("i",{class:"dot st-wait"}),"waiting for retest"),
+    el("span",{},el("i",{class:"dot st-new"}),"queued to add"),
+    el("span",{},el("i",{class:"dot st-locked"}),"not available"));
+  const onlyReview=el("label",{class:"chips",style:"margin:6px 0"},
+    el("input",{type:"checkbox",id:"onlyrev",onchange:redraw})," show only filled / needs-review (spot-check macrons)");
+  const list=el("div",{}); m.append(top,sortRow,onlyReview,legend,list);
+  function redraw(){
+    list.innerHTML="";
+    const q=normEng($("#q").value), rev=$("#onlyrev").checked, mode=$("#sort").value;
+    const now=Date.now();
+    let arr=allCards().filter(c=>{
+      if(c.kind==="free") return !rev && (!q||normEng(c.prompt).includes(q));
+      if(rev&&!(c.needs_review||c.filled)) return false;
+      return !q || stripMac(c.latin).toLowerCase().includes(q) || normEng(c.english.raw).includes(q);
+    });
+    arr=sortCards(arr, mode);
+    let n=0;
+    for(const c of arr){
+      if(++n>400){ list.append(el("div",{class:"small"},"…more (refine search)")); break; }
+      const st=cardStatus(c);
+      const wait = st.label==="waiting for retest" ? "↻ in "+fmtInterval(Math.max(0,(nextDue(c)-now)/60000)) : "";
+      const left=el("div",{class:"bi-left",onclick:()=>openEdit(c)},
+        el("i",{class:"dot "+st.cls, title:st.label}),
+        el("div",{},
+          el("div",{class:"lat"}, c.kind==="free"?c.prompt:c.latin),
+          el("div",{class:"small"}, el("span",{class:"pos"},cardPos(c)),
+            wait?el("span",{class:"countdown"},wait):null,
+            c.kind==="free"?"":"  "+c.english.raw.slice(0,42))));
+      const act=el("div",{class:"bi-act"});
+      if(st.label==="queued to add"||st.label==="not available")
+        act.append(el("button",{class:"mini",title:"play now",
+          onclick:e=>{e.stopPropagation();activateNow(c);redraw();renderStats();}},"+"));
+      if(st.label==="active"||st.label==="waiting for retest")
+        act.append(el("button",{class:"mini",title:"exclude (keeps progress)",
+          onclick:e=>{e.stopPropagation();excludeCard(c);redraw();renderStats();}},"−"));
+      if(c.filled||c.needs_review) act.append(el("button",{class:"mini ok",title:"mark correct — drop from spot-check list",
+        onclick:e=>{e.stopPropagation();approveFilled(c);redraw();}},"✓"));
+      list.append(el("div",{class:"browse-item"}, left, act));
+    }
+    if(n===0)list.append(el("div",{class:"empty small"},"Nothing matches."));
+  }
+  redraw();
+}
+
+function openEdit(c){
+  const dlg=$("#edit-dlg"), b=$("#edit-body"); b.innerHTML="";
+  const isNew=!c, isFree=isNew||c.kind==="free";
+  b.append(el("h2",{}, isNew?"New free-form card":(isFree?"Edit card":"Edit / fix entry")));
+  let f;
+  if(isFree){
+    const prompt=el("input",{type:"text",value:c?c.prompt:"",placeholder:"e.g. vocative singular of fīlius"});
+    const answers=el("input",{type:"text",class:"lat",value:c?(c.answers||[]).join(", "):"",placeholder:"acceptable answers, comma-separated (e.g. fīlī)"});
+    const note=el("input",{type:"text",value:c?(c.noteText||""):"",placeholder:"optional note shown after answering"});
+    [prompt,answers,note].forEach(i=>i.addEventListener("input",()=>{const s=i.selectionStart,x=i.value,a=applyMacronTyping(x);if(a!==x){i.value=a;i.setSelectionRange(s-(x.length-a.length),s-(x.length-a.length));}}));
+    b.append(el("label",{class:"fld"},"Prompt"),prompt,
+      el("label",{class:"fld"},"Acceptable answer(s)"),answers,
+      el("label",{class:"fld"},"Note (optional)"),note);
+    f=()=>({prompt:prompt.value.trim(),answers:answers.value.split(",").map(s=>s.trim()).filter(Boolean),noteText:note.value.trim()});
+  }else{
+    const lat=el("input",{type:"text",class:"lat",value:c.latin});
+    lat.addEventListener("input",()=>{const s=lat.selectionStart,x=lat.value,a=applyMacronTyping(x);if(a!==x){lat.value=a;lat.setSelectionRange(s-(x.length-a.length),s-(x.length-a.length));}});
+    const eng=el("input",{type:"text",value:c.english.raw});
+    b.append(el("div",{class:"small"},"Fix macrons / forms here. Type “.” after a vowel for a macron."),
+      el("label",{class:"fld"},"Latin entry"),lat,
+      el("label",{class:"fld"},"English"),eng);
+    f=()=>{ const ns=reparseSlots(c.pos,lat.value.trim());
+            if(c.slots&&c.slots.kind==="prep"&&ns.kind==="prep") ns.case=c.slots.case;  // case isn't in the Latin field
+            return {latin:lat.value.trim(),english:{...c.english,raw:eng.value.trim()},
+                    slots:ns,needs_review:false}; };
+  }
+  const actions=el("div",{class:"row",style:"margin-top:16px;gap:8px"});
+  actions.append(el("button",{class:"btn",onclick:()=>{
+      const data=f();
+      if(isNew){ store.userCards.push({id:"u"+Date.now(),kind:"free",...data}); }
+      else if(isFree){ const i=store.userCards.findIndex(x=>x.id===c.id); if(i>=0)store.userCards[i]={...c,...data}; }
+      else { store.overrides[c.id]={...(store.overrides[c.id]||{}),...data}; }
+      persist(); dlg.close(); render();
+    }}, isNew?"Add card":"Save"));
+  actions.append(el("button",{class:"btn sec",onclick:()=>dlg.close()},"Cancel"));
+  b.append(actions);
+  if(c){ // manually add this card to the study queue now, bypassing the daily cap
+    b.append(el("button",{class:"btn sec",style:"margin-top:8px",onclick:()=>{
+      if(!store.pinned.includes(c.id)) store.pinned.push(c.id);
+      persist(); dlg.close(); session=null; setView("study");
+    }},"Study now"));
+  }
+  if(c&&isFree) b.append(el("button",{class:"btn sec",style:"margin-top:8px",onclick:()=>{
+    store.userCards=store.userCards.filter(x=>x.id!==c.id);
+    store.pinned=store.pinned.filter(x=>x!==c.id); persist(); dlg.close(); render();}},"Delete card"));
+  dlg.showModal();
+}
+// minimal slot reparser for edited vocab entries
+function reparseSlots(pos,latin){
+  const parts=latin.split(",").map(s=>s.replace(/\s*\([^)]*\)/g,"").trim()).filter(Boolean);
+  if((pos||"").startsWith("verb")) return {kind:"verb",parts:parts.map(p=>({text:p==="-"?"":p,exists:p!=="-"}))};
+  if((pos||"").startsWith("noun")){
+    const g=parts.find(p=>/^(m|f|n)(\/(m|f|n))*\.?$/i.test(p)); const forms=parts.filter(p=>p!==g);
+    const indecl=/indecl/.test(pos);
+    return {kind:"noun",nominative:forms[0]||"",genitive:indecl?"":(forms[1]||""),gender:g?g.replace(".","").toLowerCase():null};
+  }
+  if((pos||"").startsWith("preposition")) return {kind:"prep",forms:parts,case:""};
+  if((pos||"").startsWith("adjective")&&parts.length>1) return {kind:"adjective",forms:parts};
+  return {kind:"text",forms:parts};
+}
+
+/* ============================================================ SETTINGS */
+function renderSettings(m){
+  const S=store.settings;
+  function slider(key,label,desc,min,max,step,unit){
+    const val=el("span",{class:"val"});
+    const set=v=>{val.textContent=v+(unit||"");};
+    const r=el("input",{type:"range",min,max,step,value:S[key],oninput:e=>{
+      S[key]=parseFloat(e.target.value); set(S[key]); persist(); renderStats(); }});
+    set(S[key]);
+    return el("div",{class:"set"},el("h3",{},label),el("div",{class:"desc"},desc),
+      el("div",{class:"ctl"},r,val));
+  }
+  // chapter range
+  const chWrap=el("div",{class:"set"},el("h3",{},"Chapters to study"),
+    el("div",{class:"desc"},"Only words in chapters "+store.settings.chMin+"–"+store.settings.chMax+" are auto-added and tested "
+      +"(1–"+MAXCH+" available). Words outside the range keep their progress, so reopening it resumes rather than restarts."));
+  const a=el("input",{type:"text",style:"width:70px",value:S.chMin,inputmode:"numeric"});
+  const b=el("input",{type:"text",style:"width:70px",value:S.chMax,inputmode:"numeric"});
+  const clamp=v=>Math.max(1,Math.min(MAXCH,parseInt(v)||1));
+  a.addEventListener("change",()=>{S.chMin=clamp(a.value);a.value=S.chMin;persist();renderStats();});
+  b.addEventListener("change",()=>{S.chMax=clamp(b.value);b.value=S.chMax;persist();renderStats();});
+  chWrap.append(el("div",{class:"row"},"from ",a," to ",b));
+
+  // directions
+  const dirWrap=el("div",{class:"set"},el("h3",{},"Directions"),
+    el("div",{class:"desc"},"Each enabled direction is a separately-scheduled card."));
+  const mk=(k,lab)=>{const c=el("input",{type:"checkbox"});c.checked=S[k];
+    c.addEventListener("change",()=>{S[k]=c.checked;persist();session=null;renderStats();});
+    return el("label",{},c," "+lab);};
+  dirWrap.append(el("div",{class:"chips"},mk("dirLE","Latin → English"),mk("dirEL","English → Latin")));
+
+  m.append(
+    chWrap, dirWrap,
+    slider("newPerDay","New cards / day","How many unseen cards to introduce daily.",0,60,1,""),
+    el("div",{class:"set"},el("h3",{},"Interval tuning"),
+      el("div",{class:"desc"},"“Fully” passes earn long intervals; “mostly” a fraction of that; “partly”/“wrong” relearn soon.")),
+    slider("firstFully","First “fully” interval","Days until review after a first fully-correct answer.",0.2,5,0.1,"d"),
+    slider("graduateFully","Second “fully” interval","Days for the next fully-correct review.",1,14,0.5,"d"),
+    slider("mostlyFactor","“Mostly” factor","Fraction of the full interval that a “mostly” answer earns.",0.2,1,0.05,"×"),
+    slider("partlyMin","“Partly” relearn","Minutes until a partly-correct card returns.",1,120,1," min"),
+    slider("againMin","“Wrong” relearn","Minutes until an incorrect card returns.",1,60,1," min"),
+    slider("easeBonus","Ease bonus","How much each “fully” answer stretches future intervals.",0,0.3,0.01,""),
+    slider("maxInterval","Max interval","Upper cap on any review interval.",30,1095,5,"d"),
+    el("div",{class:"set"},el("h3",{},"Data"),
+      el("div",{class:"desc"},"Progress is saved on this device. Export to move it elsewhere."),
+      el("div",{class:"row",style:"gap:8px"},
+        el("button",{class:"btn sec",onclick:exportData},"Export"),
+        el("button",{class:"btn sec",onclick:importData},"Import"))),
+    renderSync(),
+  );
+}
+function renderSync(){
+  const c=Sync.cfg();
+  const wrap=el("div",{class:"set"}, el("h3",{},"Sync across devices (GitHub Gist)"));
+  const status=el("div",{class:"desc"});
+  function refresh(){
+    if(Sync.on()){
+      const ago=c.lastSync?Math.round((Date.now()-c.lastSync)/60000):null;
+      status.innerHTML="";
+      status.append("Connected to a private gist (",el("code",{},(Sync.cfg().gistId||"").slice(0,8)),"). ",
+        c.lastSync?("Last synced "+(ago<1?"just now":ago+"m ago")+". "):"",
+        c.lastError?el("span",{class:"miss"},"Last error: "+c.lastError):"" );
+    }else{
+      status.textContent="Off. Enter a GitHub token with the ‘gists’ permission to sync progress between devices. Leave the gist ID blank on the first device to create one; paste that ID on your other devices.";
+    }
+  }
+  refresh();
+  const tok=el("input",{type:"password",placeholder:"GitHub token (gists scope)",autocomplete:"off",value:c.token||""});
+  const gid=el("input",{type:"text",placeholder:"gist ID (blank = create new)",autocomplete:"off",value:c.gistId||""});
+  const msg=el("div",{class:"small"});
+  const connect=el("button",{class:"btn",onclick:async()=>{
+    Sync.setCfg({token:tok.value.trim(), gistId:gid.value.trim(), enabled:true, lastError:""});
+    msg.textContent="Connecting…";
+    try{
+      if(!Sync.cfg().gistId){ msg.textContent="Creating gist…"; await Sync.createGist(); }
+      await Sync.syncNow();
+      render();   // view is Settings → re-renders with connected status
+    }catch(e){ Sync.setCfg({enabled:false}); msg.innerHTML=""; msg.append(el("span",{class:"miss"},"Failed: "+e.message)); }
+  }}, Sync.on()?"Reconnect / save":"Connect & sync");
+  const row=el("div",{class:"row",style:"gap:8px;margin-top:8px"},
+    el("button",{class:"btn sec",onclick:async()=>{ msg.textContent="Syncing…";
+      try{ await Sync.syncNow(); msg.textContent="Synced ✓"; render(); }
+      catch(e){ msg.innerHTML=""; msg.append(el("span",{class:"miss"},"Failed: "+e.message)); } }},"Sync now"),
+    el("button",{class:"btn sec",onclick:()=>{ Sync.setCfg({enabled:false}); render(); }},"Disconnect"));
+  wrap.append(status,
+    el("label",{class:"fld"},"GitHub token"),tok,
+    el("label",{class:"fld"},"Gist ID"),gid,
+    el("div",{style:"height:8px"}), connect, row, msg);
+  return wrap;
+}
+function exportData(){
+  const blob=new Blob([JSON.stringify(store)],{type:"application/json"});
+  const url=URL.createObjectURL(blob); const a=el("a",{href:url,download:"wheelock-progress.json"});
+  document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+function importData(){
+  const inp=el("input",{type:"file",accept:".json"});
+  inp.addEventListener("change",()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();
+    r.onload=()=>{try{store={...blankStore(),...JSON.parse(r.result)};
+      store.settings={...DEFAULT_SETTINGS,...store.settings};persist();session=null;render();
+      alert("Imported.");}catch(e){alert("Could not read that file.");}};r.readAsText(f);});
+  inp.click();
+}
+
+/* ============================================================ boot */
+if(!BASE.length){
+  $("#main").innerHTML='<div class="empty"><div class="big">⚠</div>'+
+    'cards.js not found. Keep <b>index.html</b> and <b>cards.js</b> in the same folder.</div>';
+}else{
+  render();
+  if(Sync.on()) Sync.pull().catch(e=>console.warn("sync pull failed:",e.message));  // local-first; merge in when it lands
+  if(typeof window!=="undefined" && window.addEventListener) window.addEventListener("online",()=>Sync.schedulePush());
+}
+</script>
+</body>
+</html>

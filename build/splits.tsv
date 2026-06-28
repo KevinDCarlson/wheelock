@@ -1,0 +1,27 @@
+# Split-off entries: idioms and distinct plural senses that should be their own
+# cards (the moved sense is stripped from the parent). Curated by hand.
+# Format: parent_id <TAB> kind(idiom|plural) <TAB> split_latin <TAB> split_english
+v0006	idiom	amābō tē	please
+v0013	idiom	salvē, salvēte	hello, greetings
+v0017	idiom	valē, valēte	good-bye, farewell
+v0028	idiom	poenās dare	to pay the penalty
+v0040	idiom	et... et	both... and
+v0106	idiom	sī quandō	if ever
+v0173	idiom	grātiās agere	to give thanks
+v0188	idiom	aliī... aliī	some... others
+v0394	idiom	aut... aut	either... or
+v0566	idiom	mēnsa secunda	dessert
+v0635	idiom	nē... quidem	not... even
+v0637	idiom	tam... quam	so... as
+v0681	idiom	sē cōnferre	to betake oneself, go
+v0091	plural	animī, animōrum, m.	high spirits, pride, courage
+v0143	plural	litterae, litterārum, f.	a letter (epistle), literature
+v0144	plural	mōrēs, mōrum, m.	habits, character
+v0160	plural	cōpiae, cōpiārum, f.	supplies, troops, forces
+v0182	plural	loca, locōrum, n.	places, regions
+v0297	plural	mīlia, mīlium, n.	thousands
+v0408	plural	hostēs, hostium, m.	the enemy
+v0465	plural	fīnēs, fīnium, m.	boundaries, territory
+v0586	plural	maiōrēs, maiōrum, m.	ancestors
+v0686	plural	custōdiae, custōdiārum, f.	guards
+v0715	plural	opēs, opum, f.	power, resources, wealth

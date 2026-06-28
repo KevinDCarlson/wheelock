@@ -1,0 +1,165 @@
+# Macron corrections for entries with no Quia source, filled by hand from Latin
+# vowel quantities. Format: card-id <TAB> full macronized citation.
+# Re-run build_cards.py to merge. These set source=filled (spot-check in app).
+v0000	mē
+v0225	is, ea, id
+v0046	amīca, amīcae, f.
+v0072	magistra, magistrae, f.
+v0116	discipula, discipulae, f.
+v0243	medica, medicae, f.
+v0472	vīcīna, vīcīnae, f.
+v0529	serva, servae, f.
+v0609	lūna, lūnae, f.
+v0612	stella, stellae, f.
+v0627	nāta, nātae, f.
+v0669	invidia, invidiae, f.
+v0717	philosopha, philosophae, f.
+v0111	remaneō, remanēre, remānsī, remānsum
+v0620	egeō, egēre, eguī, -
+v0621	expleō, explēre, explēvī, explētum
+v0623	taceō, tacēre, tacuī, tacitum
+v0643	respondeō, respondēre, respondī, respōnsum
+v0677	doleō, dolēre, doluī, dolitūrum
+v0684	invideō, invidēre, invīdī, invīsum
+v0149	tempus, temporis, n.
+v0162	laus, laudis, f.
+v0221	cōnsul, cōnsulis, m.
+v0610	occāsiō, occāsiōnis, f.
+v0611	parēns, parentis, m. or f.
+v0613	vesper, vesperis, m.
+v0629	sīdus, sīderis, n.
+v0645	honor, honōris, m.
+v0664	ās, assis, m.
+v0670	rūmor, rūmōris, m.
+v0775	lēctrīx, lēctrīcis, f.
+v0170	ex, ē
+v0286	ab, ā
+v0674	apud
+v0199	nimis, nimium
+v0633	dēnique
+v0634	ita
+v0635	quidem
+v0636	sīc
+v0637	tam
+v0638	vērō
+v0650	fūrtim
+v0651	mox
+v0652	prīmō
+v0653	repente
+v0654	unde
+v0675	semel
+v0676	usque
+v0693	longē
+v0694	līberē
+v0695	pulchrē
+v0696	fortiter
+v0697	celeriter
+v0698	ācriter
+v0699	fēlīciter
+v0700	sapienter
+v0701	facile
+v0703	male
+v0704	multum
+v0705	magnopere
+v0706	parum
+v0296	centum
+v0592	melior, melius
+v0593	peior, peius
+v0594	plūs
+v0595	minor, minus
+v0596	prior, prius
+v0597	superior, superius
+v0598	optimus, -a, -um
+v0599	maximus, -a, -um
+v0600	pessimus, -a, -um
+v0601	plūrimus, -a, -um
+v0602	minimus, -a, -um
+v0603	summus, -a, -um
+v0604	suprēmus, -a, -um
+v0614	mortuus, -a, -um
+v0615	princeps
+v0630	dignus, -a, -um
+v0631	dūrus, -a, -um
+v0632	tantus, -a, -um
+v0646	cēterī, -ae, -a
+v0647	quantus, -a, -um
+v0648	rīdiculus, -a, -um
+v0649	vīvus, -a, -um
+v0672	mediocris, mediocre
+v0304	ēiciō, ēicere, ēiēcī, ēiectum
+v0319	quattuordecim
+v0326	vīgintī ūnus
+v0327	vīgintī duo
+v0328	vīgintī trēs
+v0329	vīgintī quattuor
+v0330	vīgintī quīnque
+v0331	trīgintā
+v0332	quadrāgintā
+v0333	quīnquāgintā
+v0334	sexāgintā
+v0335	septuāgintā
+v0336	octōgintā
+v0337	nōnāgintā
+v0350	tertius decimus, -a, -um
+v0351	quārtus decimus, -a, -um
+v0352	quīntus decimus, -a, -um
+v0353	sextus decimus, -a, -um
+v0354	septimus decimus, -a, -um
+v0355	duodēvīcēsimus, -a, -um
+v0356	ūndēvīcēsimus, -a, -um
+v0357	vīcēsimus, -a, -um
+v0358	vīcēsimus prīmus, -a, -um
+v0359	vīcēsimus secundus, -a, -um
+v0360	vīcēsimus tertius, -a, -um
+v0361	vīcēsimus quārtus, -a, -um
+v0362	vīcēsimus quīntus, -a, -um
+v0363	trīcēsimus
+v0364	quadrāgēsimus
+v0365	quīnquāgēsimus
+v0366	sexāgēsimus
+v0367	septuāgēsimus
+v0368	octōgēsimus
+v0369	nōnāgēsimus
+v0398	-, coepisse, coepī, coeptum
+v0459	-, ōdisse, ōdī, ōsūrum
+v0409	lūdus, lūdī, m.
+v0607	arma, armōrum, n.
+v0624	fātum, fātī, n.
+v0625	ingenium, ingeniī, n.
+v0628	ōsculum, ōsculī, n.
+v0665	auxilium, auxiliī, n.
+v0666	digitus, digitī, m.
+v0667	elephantus, elephantī, m.
+v0668	exsilium, exsiliī, n.
+v0671	vīnum, vīnī, n.
+v0475	atque, ac
+v0532	re-, red-
+v0552	crēdō, crēdere, crēdidī, crēditum
+v0618	cēdō, cēdere, cessī, cessum
+v0639	condō, condere, condidī, conditum
+v0640	contendō, contendere, contendī, contentum
+v0644	surgō, surgere, surrēxī, surrēctum
+v0656	bibō, bibere, bibī, -
+v0657	cognōscō, cognōscere, cognōvī, cognitum
+v0658	comprehendō, comprehendere, comprehendī, comprehēnsum
+v0659	cōnsūmō, cōnsūmere, cōnsūmpsī, cōnsūmptum
+v0661	expōnō, expōnere, exposuī, expositum
+v0662	minuō, minuere, minuī, minūtum
+v0679	ferō, ferre, tulī, lātum
+v0680	adferō, adferre, attulī, allātum
+v0681	cōnferō, cōnferre, contulī, collātum
+v0682	offerō, offerre, obtulī, oblātum
+v0683	referō, referre, rettulī, relātum
+v0685	occidō, occidere, occidī, occāsum
+v0608	cursus, cursūs, m.
+v0617	nē
+v0655	utrum...an
+v0619	dēdicō, dēdicāre, dēdicāvī, dēdicātum
+v0622	praestō, praestāre, praestitī, praestitum
+v0642	pugnō, pugnāre, pugnāvī, pugnātum
+v0660	dubitō, dubitāre, dubitāvī, dubitātum
+v0663	rogō, rogāre, rogāvī, rogātum
+v0854	ōrnō, ōrnāre, ōrnāvī, ōrnātum
+v0626	moenia, moenium, n.
+v0641	molliō, mollīre, mollīvī, mollītum
+v0678	dormiō, dormīre, dormīvī, dormītum

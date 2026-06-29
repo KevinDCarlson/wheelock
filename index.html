@@ -374,18 +374,27 @@ function nextDue(c){ let m=Infinity;
   return m; }
 // the set of not-yet-started words that today's new-card allowance would introduce
 // now (deck order, capped) — these are "ready to play", i.e. active
-let _newBatch=new Set();
+let _newBatch=new Set(), _queuedWhen={};
+function midnightInDays(d){ const t=new Date(); t.setHours(0,0,0,0); t.setDate(t.getDate()+d); return t.getTime(); }
 function refreshNewBatch(){
-  _newBatch=new Set();
+  _newBatch=new Set(); _queuedWhen={};
   const pinned=new Set(store.pinned||[]);
-  let left=newAllowance();
+  const allowance=newAllowance(), per=Math.max(1, store.settings.newPerDay||1);
+  let idx=0;   // position among eligible, not-yet-started words (deck order)
   for(const c of allCards()){
     if(!eligible(c)) continue;
     if(itemIdsFor(c).some(id=>store.progress[id])) continue;   // already started → not new
-    if(pinned.has(c.id)){ _newBatch.add(c.id); continue; }     // manual: always
-    if(left<=0) continue;
-    _newBatch.add(c.id); left--;
+    if(pinned.has(c.id)){ _newBatch.add(c.id); continue; }     // manual: always active, off-quota
+    if(idx<allowance){ _newBatch.add(c.id); }                  // today's batch → active now
+    else { _queuedWhen[c.id]=midnightInDays(Math.floor((idx-allowance)/per)+1); }  // projected unlock day
+    idx++;
   }
+}
+function whenLabel(ts){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const days=Math.round((ts-today.getTime())/86400000);
+  if(days<=1) return "tomorrow";
+  return "in "+days+"d, "+new Date(ts).toLocaleDateString([],{month:"short",day:"numeric"});
 }
 function cardStatus(c){
   if(!eligible(c)) return {label:"not available", cls:"st-locked"};
@@ -879,13 +888,15 @@ function renderBrowse(m){
     for(const c of arr){
       if(++n>400){ list.append(el("div",{class:"small"},"…more (refine search)")); break; }
       const st=cardStatus(c);
-      const wait = st.label==="waiting for retest" ? "↻ in "+fmtInterval(Math.max(0,(nextDue(c)-now)/60000)) : "";
+      let badge="";
+      if(st.label==="waiting for retest") badge="↻ in "+fmtInterval(Math.max(0,(nextDue(c)-now)/60000));
+      else if(st.label==="queued to add" && _queuedWhen[c.id]) badge="↑ adds "+whenLabel(_queuedWhen[c.id]);
       const left=el("div",{class:"bi-left",onclick:()=>openEdit(c)},
         el("i",{class:"dot "+st.cls, title:st.label}),
         el("div",{},
           el("div",{class:"lat"}, c.kind==="free"?c.prompt:c.latin),
           el("div",{class:"small"}, el("span",{class:"pos"},cardPos(c)),
-            wait?el("span",{class:"countdown"},wait):null,
+            badge?el("span",{class:"countdown"},badge):null,
             c.kind==="free"?"":"  "+c.english.raw.slice(0,42))));
       const act=el("div",{class:"bi-act"});
       if(st.label==="queued to add"||st.label==="not available")

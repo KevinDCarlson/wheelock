@@ -102,6 +102,10 @@
   .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:4px 0 10px}
   .legend span{display:flex;align-items:center;gap:5px}
   .sessbar{text-align:center;color:var(--muted);font-size:13px;margin-bottom:10px}
+  .act-row{display:flex;gap:10px;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .act-dev{font-weight:600;flex:none;min-width:78px}
+  .act-time{flex:1;color:var(--muted)}
+  .act-n{flex:none;color:var(--muted);white-space:nowrap}
   .callout{font-size:13px;line-height:1.45;border-radius:9px;padding:10px 12px;margin-bottom:6px}
   .callout.warn{color:var(--ink);background:var(--panel);border:1px solid var(--partly)}
   @supports (background:color-mix(in srgb,red,blue)){
@@ -175,7 +179,7 @@ const DEFAULT_SETTINGS={
   maxInterval:365    // days, cap
 };
 function blankStore(){ const settings={...DEFAULT_SETTINGS}; settings.chMax=40;  // full deck by default
-  return {schema:1, settings, progress:{}, overrides:{}, userCards:[], newIntro:{}, pinned:[], included:[], disabled:[]}; }
+  return {schema:1, settings, progress:{}, overrides:{}, userCards:[], newIntro:{}, pinned:[], included:[], disabled:[], activity:[]}; }
 
 const Storage = {
   load(){ try{ const s=JSON.parse(localStorage.getItem(KEY));
@@ -261,9 +265,57 @@ function mergeStores(local, remote){
   const ni={...(local.newIntro||{})};
   for(const [d,v] of Object.entries(remote.newIntro||{})) ni[d]=Math.max(ni[d]||0, v);
   out.newIntro=ni;
+  // activity log: union by session id; the owning device's fuller record wins
+  const act={};
+  for(const a of (local.activity||[])) act[a.id]=a;
+  for(const a of (remote.activity||[])){ const cur=act[a.id];
+    if(!cur || a.count>cur.count || (a.count===cur.count && a.end>cur.end)) act[a.id]=a; }
+  out.activity=Object.values(act).sort((x,y)=>x.start-y.start).slice(-150);
   out.settings={...DEFAULT_SETTINGS, ...(newer.settings||{})};
   out.updatedAt=Math.max(local.updatedAt||0, remote.updatedAt||0);
   return out;
+}
+
+/* ============================================================ device + activity log */
+function guessDeviceLabel(){ const ua=(typeof navigator!=="undefined"&&navigator.userAgent)||"";
+  if(/iPhone/.test(ua)) return "iPhone";
+  if(/iPad/.test(ua)) return "iPad";
+  if(/Android/.test(ua)) return "Android";
+  if(/Macintosh|Mac OS X/.test(ua)) return "Mac";
+  if(/Windows/.test(ua)) return "Windows PC";
+  if(/Linux/.test(ua)) return "Linux";
+  return "this device"; }
+const Device = {
+  KEY:"wheelock_device", _d:null,
+  get(){ if(this._d) return this._d;
+    try{ this._d=JSON.parse(localStorage.getItem(this.KEY)); }catch(e){}
+    if(!this._d || !this._d.id){
+      const id=(typeof crypto!=="undefined" && crypto.randomUUID) ? crypto.randomUUID()
+               : "d"+Date.now().toString(36)+Math.random().toString(36).slice(2);
+      this._d={id, label:guessDeviceLabel()};
+      localStorage.setItem(this.KEY, JSON.stringify(this._d));
+    }
+    return this._d; },
+  setLabel(l){ const d=this.get(); d.label=l||guessDeviceLabel(); localStorage.setItem(this.KEY, JSON.stringify(d)); }
+};
+const SESSION_GAP=45*60000;  // a >45-min break starts a new session
+function logActivity(){
+  const dev=Device.get(), now=Date.now();
+  store.activity=store.activity||[];
+  const mine=store.activity.filter(x=>x.device===dev.id);
+  let e=mine.length ? mine.reduce((a,b)=>a.end>=b.end?a:b) : null;
+  if(!e || (now-e.end)>SESSION_GAP){           // continue the open session, or start a new one
+    e={id:dev.id+"-"+now, device:dev.id, label:dev.label, start:now, end:now, count:0};
+    store.activity.push(e);
+    if(store.activity.length>150) store.activity=store.activity.slice(-150);
+  }
+  e.end=now; e.count++; e.label=dev.label;
+}
+function fmtSession(start,end){
+  const s=new Date(start), e=new Date(end);
+  const day=s.toLocaleDateString([],{month:"short",day:"numeric"});
+  const t=x=>x.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
+  return day+" · "+t(s)+((end-start>60000)?("–"+t(e)):"");
 }
 
 /* ============================================================ deck */
@@ -546,6 +598,7 @@ function applyGrade(it,tier){
   store.progress[it.id]=schedule(store.progress[it.id],tier);
   if(wasNew && !wordSeen){ const t=todayStr(); store.newIntro[t]=(store.newIntro[t]||0)+1; }
   if(store.pinned&&store.pinned.includes(base)) store.pinned=store.pinned.filter(x=>x!==base);
+  logActivity();
   persist();
   session.i++;
   render();
@@ -931,7 +984,25 @@ function renderSettings(m){
         el("button",{class:"btn sec",onclick:exportData},"Export"),
         el("button",{class:"btn sec",onclick:importData},"Import"))),
     renderSync(),
+    renderActivity(),
   );
+}
+function renderActivity(){
+  const wrap=el("div",{class:"set"}, el("h3",{},"Activity log"),
+    el("div",{class:"desc"},"Recent study sessions across your devices (shared via sync). This device's name:"));
+  const dev=Device.get();
+  const name=el("input",{type:"text",value:dev.label,autocomplete:"off"});
+  name.addEventListener("change",()=>{ Device.setLabel(name.value.trim()); });
+  wrap.append(name);
+  const list=el("div",{style:"margin-top:12px"});
+  const acts=(store.activity||[]).slice().sort((a,b)=>b.end-a.end).slice(0,25);
+  if(!acts.length) list.append(el("div",{class:"small"},"No study sessions recorded yet."));
+  for(const a of acts) list.append(el("div",{class:"act-row"},
+    el("span",{class:"act-dev"}, a.label||"device"),
+    el("span",{class:"act-time"}, fmtSession(a.start,a.end)),
+    el("span",{class:"act-n"}, a.count+" card"+(a.count===1?"":"s"))));
+  wrap.append(list);
+  return wrap;
 }
 function renderSync(){
   const c=Sync.cfg();

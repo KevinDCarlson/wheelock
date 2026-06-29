@@ -163,6 +163,23 @@ function normEng(s){
     .replace(/\s+/g," ").trim();
 }
 function normLat(s){ return String(s||"").trim().replace(/\s+/g," "); }
+// mirror of the build's parse_english: semicolon groups → comma synonyms; parens → notes
+function parseEnglish(raw){
+  raw=String(raw||"");
+  const notes=[...raw.matchAll(/\(([^)]*)\)/g)].map(m=>m[1].trim());
+  const core=raw.replace(/\([^)]*\)/g," ");
+  const groups=[];
+  for(const grp of core.split(";")){
+    const syns=grp.split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
+    if(syns.length) groups.push(syns);
+  }
+  return {raw, groups, notes};
+}
+// re-derive groups for any edited override (older edits stored stale groups)
+function fixOverrideEnglish(ov){ ov=ov||{};
+  for(const id in ov){ const o=ov[id];
+    if(o && o.english && typeof o.english.raw==="string") o.english=parseEnglish(o.english.raw); }
+  return ov; }
 
 /* ============================================================ storage seam */
 const KEY="wheelock_v1";
@@ -185,6 +202,7 @@ const Storage = {
   load(){ try{ const s=JSON.parse(localStorage.getItem(KEY));
       if(!s) return blankStore();
       s.settings={...DEFAULT_SETTINGS, ...(s.settings||{})};
+      s.overrides=fixOverrideEnglish(s.overrides);
       return {...blankStore(), ...s};
     }catch(e){ return blankStore(); } },
   save(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
@@ -236,6 +254,11 @@ const Sync = {
     clearTimeout(this._timer);
     this._timer=setTimeout(()=>{ this.push().catch(e=>console.warn("sync push failed:",e.message)); }, 2500);
   },
+  flush(){   // push immediately (e.g. when leaving the page) so a handoff isn't lost
+    if(!this.on() || (typeof navigator!=="undefined" && navigator.onLine===false)) return;
+    clearTimeout(this._timer);
+    this.push().catch(e=>console.warn("sync flush failed:",e.message));
+  },
   async syncNow(){
     if(this._busy) return; this._busy=true;
     try{ await this.pull(); await this.push(); this.setCfg({lastSync:Date.now(), lastError:""}); }
@@ -258,7 +281,7 @@ function mergeStores(local, remote){
     prog[id] = !l?r : !r?l : ((r.lastSeen||0)>(l.lastSeen||0)?r:l); }
   out.progress=prog;
   // overrides (macron approvals, entry fixes): union, newer wins on conflicting id
-  out.overrides={...(older.overrides||{}), ...(newer.overrides||{})};
+  out.overrides=fixOverrideEnglish({...(older.overrides||{}), ...(newer.overrides||{})});
   // user-created cards: union by id, newer wins on conflict
   const uc={}; for(const c of (older.userCards||[])) uc[c.id]=c; for(const c of (newer.userCards||[])) uc[c.id]=c;
   out.userCards=Object.values(uc);
@@ -897,7 +920,7 @@ function openEdit(c){
       el("label",{class:"fld"},"English"),eng);
     f=()=>{ const ns=reparseSlots(c.pos,lat.value.trim());
             if(c.slots&&c.slots.kind==="prep"&&ns.kind==="prep") ns.case=c.slots.case;  // case isn't in the Latin field
-            return {latin:lat.value.trim(),english:{...c.english,raw:eng.value.trim()},
+            return {latin:lat.value.trim(),english:parseEnglish(eng.value.trim()),       // re-parse groups for grading
                     slots:ns,needs_review:false}; };
   }
   const actions=el("div",{class:"row",style:"margin-top:16px;gap:8px"});
@@ -1069,7 +1092,12 @@ if(!BASE.length){
 }else{
   render();
   if(Sync.on()) Sync.pull().catch(e=>console.warn("sync pull failed:",e.message));  // local-first; merge in when it lands
-  if(typeof window!=="undefined" && window.addEventListener) window.addEventListener("online",()=>Sync.schedulePush());
+  if(typeof window!=="undefined" && window.addEventListener){
+    window.addEventListener("online",()=>Sync.schedulePush());
+    window.addEventListener("pagehide",()=>Sync.flush());
+    if(typeof document!=="undefined") document.addEventListener("visibilitychange",
+      ()=>{ if(document.visibilityState==="hidden") Sync.flush(); });   // app-switch → push now
+  }
   // ask the browser to keep our data (exempt from automatic eviction where supported)
   if(typeof navigator!=="undefined" && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
 }

@@ -186,6 +186,58 @@ def expand_noun_genitive(latin):
         return ", ".join(parts)
     return latin
 
+def expand_verb_prefix(first, token):
+    """A compound verb abbreviates shared letters with a leading hyphen, e.g.
+    'inveniō, …, -vēnī' → 'invēnī'. Recover the prefix by aligning the hyphenated
+    stem against the first principal part (longest-overlap match)."""
+    tail = token[1:]
+    fs, ts = strip_macrons(first), strip_macrons(tail)
+    best_i, best_len = 1, -1
+    for i in range(1, len(fs)):
+        l = 0
+        while i + l < len(fs) and l < len(ts) and fs[i + l] == ts[l]:
+            l += 1
+        if l >= best_len:           # on a tie prefer the longer prefix (handles accipiō → accēpī)
+            best_len, best_i = l, i
+    return (first[:best_i] + tail) if best_len >= 1 else token
+
+def expand_gen_ending(nom, end):
+    if end == "-ae"  and nom.endswith("a"):                            return nom[:-1] + "ae"
+    if end in ("-ī","-iī","-ii") and (nom.endswith("us") or nom.endswith("um")): return nom[:-2] + "ī"
+    if end == "-ārum" and nom.endswith("ae"):                          return nom[:-2] + "ārum"
+    if end in ("-ōrum","-orum") and nom.endswith("a"):                 return nom[:-1] + "ōrum"
+    if end in ("-ōrum","-orum") and nom.endswith("ī"):                 return nom[:-1] + "ōrum"
+    if end in ("-ūs","-us") and nom.endswith("us"):                    return nom[:-2] + "ūs"
+    return end
+
+def spell_out(pos, latin):
+    """Expand all abbreviated forms to full words: adjective endings, compound-verb
+    hyphen-prefixes, and noun genitives (incl. combined m./f. entries)."""
+    parts = [p.strip() for p in latin.split(",")]
+    if pos.startswith("adjective"):
+        masc = parts[0]
+        stem = masc[:-2] if masc.endswith("us") else masc[:-1] if masc.endswith("ī") else None
+        if stem is None:
+            return latin
+        return ", ".join([masc] + [(stem + p[1:]) if (p.startswith("-") and p != "-") else p
+                                   for p in parts[1:]])
+    if pos.startswith("verb"):
+        first = parts[0]
+        return ", ".join([first] + [expand_verb_prefix(first, p) if (p.startswith("-") and p != "-") else p
+                                    for p in parts[1:]])
+    if pos.startswith("noun"):
+        out, last = [], None
+        for p in parts:
+            if p.startswith("-") and p != "-" and last:
+                out.append(expand_gen_ending(last, p))
+            else:
+                out.append(p)
+                for tok in p.split():     # track latest full word, even within 'm. magistra'
+                    if re.fullmatch(r"[A-Za-zāēīōūĀĒĪŌŪ]+", tok) and tok not in ("and", "or", "m", "f", "n"):
+                        last = tok
+        return ", ".join(out)
+    return latin
+
 def expand_first_conj(rtf_parts, quia_first):
     """Quia abbreviates regular 1st-conj verbs as 'cēnō (1)'. Rebuild the full
     macronized principal parts: the endings are fixed (-ō, -āre, -āvī, -ātum),
@@ -369,9 +421,8 @@ def main():
         if filled:
             macron, source, needs_review, review_reason = overrides[cid], "filled", False, ""
 
-        # expand abbreviated noun genitives so the answer is the full word
-        if fam == "noun" and "indecl" not in rec["pos"]:
-            macron = expand_noun_genitive(macron)
+        # spell out all abbreviated forms (adj endings, compound-verb prefixes, noun genitives)
+        macron = spell_out(rec["pos"], macron)
 
         special = bool(re.search(r"\((?:plural|gen\.|in plural|esp\.)", rec["english"], re.I) \
                        or re.search(r"\bplural\b", rec["english"], re.I))

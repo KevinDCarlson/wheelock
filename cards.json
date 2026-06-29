@@ -1706,7 +1706,7 @@
    "chapter": 3,
    "pos": "noun (2)",
    "latin_plain": "amicus, -i, m.",
-   "latin": "amīcus, amīcī, m., amīca, -ae, f.",
+   "latin": "amīcus, amīcī, m., amīca, amīcae, f.",
    "english": {
     "raw": "friend",
     "groups": [
@@ -1958,7 +1958,7 @@
    "chapter": 3,
    "pos": "adjective",
    "latin_plain": "avarus, -a, -um",
-   "latin": "avārus, -a, -um",
+   "latin": "avārus, avāra, avārum",
    "english": {
     "raw": "greedy, avaricious",
     "groups": [
@@ -1973,8 +1973,8 @@
     "kind": "adjective",
     "forms": [
      "avārus",
-     "-a",
-     "-um"
+     "avāra",
+     "avārum"
     ]
    },
    "source": "quia",
@@ -1988,7 +1988,7 @@
    "chapter": 3,
    "pos": "adjective",
    "latin_plain": "pauci, -ae, -a",
-   "latin": "paucī, -ae, -a",
+   "latin": "paucī, paucae, pauca",
    "english": {
     "raw": "few, a few (usually plural)",
     "groups": [
@@ -2005,8 +2005,8 @@
     "kind": "adjective",
     "forms": [
      "paucī",
-     "-ae",
-     "-a"
+     "paucae",
+     "pauca"
     ]
    },
    "source": "quia",
@@ -2426,7 +2426,7 @@
    "chapter": 4,
    "pos": "noun (2)",
    "latin_plain": "magister, magistri, m.",
-   "latin": "magister, magistrī, m. magistra, -ae, f.",
+   "latin": "magister, magistrī, m. magistra, magistrae, f.",
    "english": {
     "raw": "schoolmaster, teacher, master",
     "groups": [
@@ -2677,7 +2677,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "bellus, -a, -um",
-   "latin": "bellus, -a, -um",
+   "latin": "bellus, bella, bellum",
    "english": {
     "raw": "pretty, handsome, charming",
     "groups": [
@@ -2693,8 +2693,8 @@
     "kind": "adjective",
     "forms": [
      "bellus",
-     "-a",
-     "-um"
+     "bella",
+     "bellum"
     ]
    },
    "source": "quia",
@@ -2708,7 +2708,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "bonus, -a, -um",
-   "latin": "bonus, -a, -um",
+   "latin": "bonus, bona, bonum",
    "english": {
     "raw": "good, kind",
     "groups": [
@@ -2723,8 +2723,8 @@
     "kind": "adjective",
     "forms": [
      "bonus",
-     "-a",
-     "-um"
+     "bona",
+     "bonum"
     ]
    },
    "source": "quia",
@@ -2738,7 +2738,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "humanus, -a, -um",
-   "latin": "hūmānus, -a, -um",
+   "latin": "hūmānus, hūmāna, hūmānum",
    "english": {
     "raw": "pertaining to man, human, humane, kind, refined, cultivated",
     "groups": [
@@ -2757,8 +2757,8 @@
     "kind": "adjective",
     "forms": [
      "hūmānus",
-     "-a",
-     "-um"
+     "hūmāna",
+     "hūmānum"
     ]
    },
    "source": "quia",
@@ -2772,7 +2772,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "malus, -a, -um",
-   "latin": "malus, -a, -um",
+   "latin": "malus, mala, malum",
    "english": {
     "raw": "bad, wicked, evil",
     "groups": [
@@ -2788,8 +2788,8 @@
     "kind": "adjective",
     "forms": [
      "malus",
-     "-a",
-     "-um"
+     "mala",
+     "malum"
     ]
    },
    "source": "quia",
@@ -2803,7 +2803,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "parvus, -a, -um",
-   "latin": "parvus, -a, -um",
+   "latin": "parvus, parva, parvum",
    "english": {
     "raw": "small, little",
     "groups": [
@@ -2818,8 +2818,8 @@
     "kind": "adjective",
     "forms": [
      "parvus",
-     "-a",
-     "-um"
+     "parva",
+     "parvum"
     ]
    },
    "source": "quia",
@@ -2833,7 +2833,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "stultus, -a, -um",
-   "latin": "stultus, -a, -um",
+   "latin": "stultus, stulta, stultum",
    "english": {
     "raw": "foolish",
     "groups": [
@@ -2847,8 +2847,8 @@
     "kind": "adjective",
     "forms": [
      "stultus",
-     "-a",
-     "-um"
+     "stulta",
+     "stultum"
     ]
    },
    "source": "quia",
@@ -2889,7 +2889,7 @@
    "chapter": 4,
    "pos": "adjective",
    "latin_plain": "verus, -a, -um",
-   "latin": "vērus, -a, -um",
+   "latin": "vērus, vēra, vērum",
    "english": {
     "raw": "true, real, proper",
     "groups": [
@@ -2905,8 +2905,8 @@
     "kind": "adjective",
     "forms": [
      "vērus",
-     "-a",
-     "-um"
+     "vēra",
+     "vērum"
     ]
    },
    "source": "quia",
@@ -3330,7 +3330,7 @@
    "chapter": 5,
    "pos": "adjective",
    "latin_plain": "sanus, -a, -um",
-   "latin": "sānus, -a, -um",
+   "latin": "sānus, sāna, sānum",
    "english": {
     "raw": "sound, healthy, sane",
     "groups": [
@@ -3346,8 +3346,8 @@
     "kind": "adjective",
     "forms": [
      "sānus",
-     "-a",
-     "-um"
+     "sāna",
+     "sānum"
     ]
    },
    "source": "quia",
@@ -3939,7 +3939,7 @@
    "chapter": 6,
    "pos": "noun (2)",
    "latin_plain": "discipulus, -i, m.",
-   "latin": "discipulus, discipulī, m. and discipula, -ae, f.",
+   "latin": "discipulus, discipulī, m. and discipula, discipulae, f.",
    "english": {
     "raw": "learner, pupil, student",
     "groups": [
@@ -4083,7 +4083,7 @@
    "chapter": 6,
    "pos": "adjective",
    "latin_plain": "Graecus, -a, -um",
-   "latin": "Graecus, -a, -um",
+   "latin": "Graecus, Graeca, Graecum",
    "english": {
     "raw": "Greek",
     "groups": [
@@ -4097,8 +4097,8 @@
     "kind": "adjective",
     "forms": [
      "Graecus",
-     "-a",
-     "-um"
+     "Graeca",
+     "Graecum"
     ]
    },
    "source": "quia",
@@ -4139,7 +4139,7 @@
    "chapter": 6,
    "pos": "adjective",
    "latin_plain": "perpetuus, -a, -um",
-   "latin": "perpetuus, -a, -um",
+   "latin": "perpetuus, perpetua, perpetuum",
    "english": {
     "raw": "perpetual, lasting, uninterrupted, continuous",
     "groups": [
@@ -4156,8 +4156,8 @@
     "kind": "adjective",
     "forms": [
      "perpetuus",
-     "-a",
-     "-um"
+     "perpetua",
+     "perpetuum"
     ]
    },
    "source": "quia",
@@ -4171,7 +4171,7 @@
    "chapter": 6,
    "pos": "adjective",
    "latin_plain": "plenus, -a, -um",
-   "latin": "plēnus, -a, -um",
+   "latin": "plēnus, plēna, plēnum",
    "english": {
     "raw": "full, abundant, generous",
     "groups": [
@@ -4187,8 +4187,8 @@
     "kind": "adjective",
     "forms": [
      "plēnus",
-     "-a",
-     "-um"
+     "plēna",
+     "plēnum"
     ]
    },
    "source": "quia",
@@ -4202,7 +4202,7 @@
    "chapter": 6,
    "pos": "adjective",
    "latin_plain": "salvus, -a, -um",
-   "latin": "salvus, -a, -um",
+   "latin": "salvus, salva, salvum",
    "english": {
     "raw": "safe, sound",
     "groups": [
@@ -4217,8 +4217,8 @@
     "kind": "adjective",
     "forms": [
      "salvus",
-     "-a",
-     "-um"
+     "salva",
+     "salvum"
     ]
    },
    "source": "quia",
@@ -4232,7 +4232,7 @@
    "chapter": 6,
    "pos": "adjective",
    "latin_plain": "secundus, -a, -um",
-   "latin": "secundus, -a, -um",
+   "latin": "secundus, secunda, secundum",
    "english": {
     "raw": "second; favorable",
     "groups": [
@@ -4249,8 +4249,8 @@
     "kind": "adjective",
     "forms": [
      "secundus",
-     "-a",
-     "-um"
+     "secunda",
+     "secundum"
     ]
    },
    "source": "quia",
@@ -5096,7 +5096,7 @@
    "chapter": 7,
    "pos": "adjective",
    "latin_plain": "novus, -a, -um",
-   "latin": "novus, -a, -um",
+   "latin": "novus, nova, novum",
    "english": {
     "raw": "new; strange",
     "groups": [
@@ -5113,8 +5113,8 @@
     "kind": "adjective",
     "forms": [
      "novus",
-     "-a",
-     "-um"
+     "nova",
+     "novum"
     ]
    },
    "source": "quia",
@@ -6366,7 +6366,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "alius, alia, aliud",
-   "latin": "alius, -a, -ud",
+   "latin": "alius, alia, aliud",
    "english": {
     "raw": "other, another",
     "groups": [
@@ -6381,8 +6381,8 @@
     "kind": "adjective",
     "forms": [
      "alius",
-     "-a",
-     "-ud"
+     "alia",
+     "aliud"
     ]
    },
    "source": "quia",
@@ -6487,7 +6487,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "nullus, -a, -um",
-   "latin": "nūllus, -a, -um",
+   "latin": "nūllus, nūlla, nūllum",
    "english": {
     "raw": "not any, no, none",
     "groups": [
@@ -6503,8 +6503,8 @@
     "kind": "adjective",
     "forms": [
      "nūllus",
-     "-a",
-     "-um"
+     "nūlla",
+     "nūllum"
     ]
    },
    "source": "quia",
@@ -6518,7 +6518,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "solus, -a, -um",
-   "latin": "sōlus, -a, -um",
+   "latin": "sōlus, sōla, sōlum",
    "english": {
     "raw": "alone, only, the only",
     "groups": [
@@ -6534,8 +6534,8 @@
     "kind": "adjective",
     "forms": [
      "sōlus",
-     "-a",
-     "-um"
+     "sōla",
+     "sōlum"
     ]
    },
    "source": "quia",
@@ -6549,7 +6549,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "totus, -a, -um",
-   "latin": "tōtus, -a, -um",
+   "latin": "tōtus, tōta, tōtum",
    "english": {
     "raw": "whole, entire",
     "groups": [
@@ -6564,8 +6564,8 @@
     "kind": "adjective",
     "forms": [
      "tōtus",
-     "-a",
-     "-um"
+     "tōta",
+     "tōtum"
     ]
    },
    "source": "quia",
@@ -6579,7 +6579,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "ullus, -a, -um",
-   "latin": "ūllus, -a, -um",
+   "latin": "ūllus, ūlla, ūllum",
    "english": {
     "raw": "any",
     "groups": [
@@ -6593,8 +6593,8 @@
     "kind": "adjective",
     "forms": [
      "ūllus",
-     "-a",
-     "-um"
+     "ūlla",
+     "ūllum"
     ]
    },
    "source": "quia",
@@ -6608,7 +6608,7 @@
    "chapter": 9,
    "pos": "adjective",
    "latin_plain": "unus, -a, -um",
-   "latin": "ūnus, -a, -um",
+   "latin": "ūnus, ūna, ūnum",
    "english": {
     "raw": "one, single, alone",
     "groups": [
@@ -6624,8 +6624,8 @@
     "kind": "adjective",
     "forms": [
      "ūnus",
-     "-a",
-     "-um"
+     "ūna",
+     "ūnum"
     ]
    },
    "source": "quia",
@@ -7014,7 +7014,7 @@
    "chapter": 10,
    "pos": "adjective",
    "latin_plain": "beatus, -a, -um",
-   "latin": "beātus, -a, -um",
+   "latin": "beātus, beāta, beātum",
    "english": {
     "raw": "happy, fortunate, blessed",
     "groups": [
@@ -7030,8 +7030,8 @@
     "kind": "adjective",
     "forms": [
      "beātus",
-     "-a",
-     "-um"
+     "beāta",
+     "beātum"
     ]
    },
    "source": "quia",
@@ -7373,7 +7373,7 @@
    "chapter": 10,
    "pos": "verb (4)",
    "latin_plain": "invenio, invenire, inveni, inventum",
-   "latin": "inveniō, invenīre, -vēnī, -ventum",
+   "latin": "inveniō, invenīre, invēnī, inventum",
    "english": {
     "raw": "to come upon, find",
     "groups": [
@@ -7396,11 +7396,11 @@
       "exists": true
      },
      {
-      "text": "-vēnī",
+      "text": "invēnī",
       "exists": true
      },
      {
-      "text": "-ventum",
+      "text": "inventum",
       "exists": true
      }
     ]
@@ -7679,7 +7679,7 @@
    "chapter": 11,
    "pos": "adjective",
    "latin_plain": "amicus, -a, -um",
-   "latin": "amīcus, -a, -um",
+   "latin": "amīcus, amīca, amīcum",
    "english": {
     "raw": "friendly",
     "groups": [
@@ -7693,8 +7693,8 @@
     "kind": "adjective",
     "forms": [
      "amīcus",
-     "-a",
-     "-um"
+     "amīca",
+     "amīcum"
     ]
    },
    "source": "quia",
@@ -7708,7 +7708,7 @@
    "chapter": 11,
    "pos": "adjective",
    "latin_plain": "carus, -a, -um",
-   "latin": "cārus, -a, -um",
+   "latin": "cārus, cāra, cārum",
    "english": {
     "raw": "dear",
     "groups": [
@@ -7722,8 +7722,8 @@
     "kind": "adjective",
     "forms": [
      "cārus",
-     "-a",
-     "-um"
+     "cāra",
+     "cārum"
     ]
    },
    "source": "quia",
@@ -8148,7 +8148,7 @@
    "chapter": 12,
    "pos": "noun (2)",
    "latin_plain": "medicus, -i, m.",
-   "latin": "medicus, medicī, m., and medica, -ae, f.",
+   "latin": "medicus, medicī, m., and medica, medicae, f.",
    "english": {
     "raw": "doctor, physician",
     "groups": [
@@ -8287,7 +8287,7 @@
    "chapter": 12,
    "pos": "adjective",
    "latin_plain": "acerbus, -a, -um",
-   "latin": "acerbus, -a, -um",
+   "latin": "acerbus, acerba, acerbum",
    "english": {
     "raw": "harsh, bitter, grievous",
     "groups": [
@@ -8303,8 +8303,8 @@
     "kind": "adjective",
     "forms": [
      "acerbus",
-     "-a",
-     "-um"
+     "acerba",
+     "acerbum"
     ]
    },
    "source": "quia",
@@ -8407,7 +8407,7 @@
    "chapter": 12,
    "pos": "verb (3)",
    "latin_plain": "amitto, amittere, amisi, amissum",
-   "latin": "āmittō, -mittere, -mīsī, -missum",
+   "latin": "āmittō, āmittere, āmīsī, āmissum",
    "english": {
     "raw": "to lose, let go",
     "groups": [
@@ -8426,15 +8426,15 @@
       "exists": true
      },
      {
-      "text": "-mittere",
+      "text": "āmittere",
       "exists": true
      },
      {
-      "text": "-mīsī",
+      "text": "āmīsī",
       "exists": true
      },
      {
-      "text": "-missum",
+      "text": "āmissum",
       "exists": true
      }
     ]
@@ -8728,7 +8728,7 @@
    "chapter": 13,
    "pos": "adjective",
    "latin_plain": "doctus, -a, -um",
-   "latin": "doctus, -a, -um",
+   "latin": "doctus, docta, doctum",
    "english": {
     "raw": "taught, learned, skilled",
     "groups": [
@@ -8744,8 +8744,8 @@
     "kind": "adjective",
     "forms": [
      "doctus",
-     "-a",
-     "-um"
+     "docta",
+     "doctum"
     ]
    },
    "source": "quia",
@@ -8759,7 +8759,7 @@
    "chapter": 13,
    "pos": "adjective",
    "latin_plain": "fortunatus, -a, -um",
-   "latin": "fortūnātus, -a, -um",
+   "latin": "fortūnātus, fortūnāta, fortūnātum",
    "english": {
     "raw": "lucky, fortunate, happy",
     "groups": [
@@ -8775,8 +8775,8 @@
     "kind": "adjective",
     "forms": [
      "fortūnātus",
-     "-a",
-     "-um"
+     "fortūnāta",
+     "fortūnātum"
     ]
    },
    "source": "quia",
@@ -8790,7 +8790,7 @@
    "chapter": 13,
    "pos": "adjective",
    "latin_plain": "suus, -a, -um",
-   "latin": "suus, -a, -um",
+   "latin": "suus, sua, suum",
    "english": {
     "raw": "his own, her own, its own, their own (reflexive possessive)",
     "groups": [
@@ -8809,8 +8809,8 @@
     "kind": "adjective",
     "forms": [
      "suus",
-     "-a",
-     "-um"
+     "sua",
+     "suum"
     ]
    },
    "source": "quia",
@@ -10288,7 +10288,7 @@
    "chapter": 15,
    "pos": "adjective, cardinal",
    "latin_plain": "unus, -a, -um",
-   "latin": "ūnus, -a, -um",
+   "latin": "ūnus, ūna, ūnum",
    "english": {
     "raw": "one",
     "groups": [
@@ -10302,8 +10302,8 @@
     "kind": "adjective",
     "forms": [
      "ūnus",
-     "-a",
-     "-um"
+     "ūna",
+     "ūnum"
     ]
    },
    "source": "quia",
@@ -11173,7 +11173,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "primus, -a, -um",
-   "latin": "prīmus, -a, -um",
+   "latin": "prīmus, prīma, prīmum",
    "english": {
     "raw": "first",
     "groups": [
@@ -11187,8 +11187,8 @@
     "kind": "adjective",
     "forms": [
      "prīmus",
-     "-a",
-     "-um"
+     "prīma",
+     "prīmum"
     ]
    },
    "source": "quia",
@@ -11202,7 +11202,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "secundus, -a, -um",
-   "latin": "secundus, -a, -um",
+   "latin": "secundus, secunda, secundum",
    "english": {
     "raw": "second",
     "groups": [
@@ -11216,8 +11216,8 @@
     "kind": "adjective",
     "forms": [
      "secundus",
-     "-a",
-     "-um"
+     "secunda",
+     "secundum"
     ]
    },
    "source": "quia",
@@ -11501,7 +11501,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "tertius decimus, -a, -um",
-   "latin": "tertius decimus, -a, -um",
+   "latin": "tertius decimus, tertius decima, tertius decimum",
    "english": {
     "raw": "thirteenth",
     "groups": [
@@ -11515,8 +11515,8 @@
     "kind": "adjective",
     "forms": [
      "tertius decimus",
-     "-a",
-     "-um"
+     "tertius decima",
+     "tertius decimum"
     ]
    },
    "source": "filled",
@@ -11530,7 +11530,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "quartus decimus, -a, -um",
-   "latin": "quārtus decimus, -a, -um",
+   "latin": "quārtus decimus, quārtus decima, quārtus decimum",
    "english": {
     "raw": "fourteenth",
     "groups": [
@@ -11544,8 +11544,8 @@
     "kind": "adjective",
     "forms": [
      "quārtus decimus",
-     "-a",
-     "-um"
+     "quārtus decima",
+     "quārtus decimum"
     ]
    },
    "source": "filled",
@@ -11559,7 +11559,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "quintus decimus, -a, -um",
-   "latin": "quīntus decimus, -a, -um",
+   "latin": "quīntus decimus, quīntus decima, quīntus decimum",
    "english": {
     "raw": "fifteenth",
     "groups": [
@@ -11573,8 +11573,8 @@
     "kind": "adjective",
     "forms": [
      "quīntus decimus",
-     "-a",
-     "-um"
+     "quīntus decima",
+     "quīntus decimum"
     ]
    },
    "source": "filled",
@@ -11588,7 +11588,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "sextus decimus, -a, -um",
-   "latin": "sextus decimus, -a, -um",
+   "latin": "sextus decimus, sextus decima, sextus decimum",
    "english": {
     "raw": "sixteenth",
     "groups": [
@@ -11602,8 +11602,8 @@
     "kind": "adjective",
     "forms": [
      "sextus decimus",
-     "-a",
-     "-um"
+     "sextus decima",
+     "sextus decimum"
     ]
    },
    "source": "filled",
@@ -11617,7 +11617,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "septimus decimus, -a, -um",
-   "latin": "septimus decimus, -a, -um",
+   "latin": "septimus decimus, septimus decima, septimus decimum",
    "english": {
     "raw": "seventeenth",
     "groups": [
@@ -11631,8 +11631,8 @@
     "kind": "adjective",
     "forms": [
      "septimus decimus",
-     "-a",
-     "-um"
+     "septimus decima",
+     "septimus decimum"
     ]
    },
    "source": "filled",
@@ -11646,7 +11646,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "duodevicesimus, -a, -um",
-   "latin": "duodēvīcēsimus, -a, -um",
+   "latin": "duodēvīcēsimus, duodēvīcēsima, duodēvīcēsimum",
    "english": {
     "raw": "eighteenth (literally two from twenty)",
     "groups": [
@@ -11662,8 +11662,8 @@
     "kind": "adjective",
     "forms": [
      "duodēvīcēsimus",
-     "-a",
-     "-um"
+     "duodēvīcēsima",
+     "duodēvīcēsimum"
     ]
    },
    "source": "filled",
@@ -11677,7 +11677,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "undevicesimus, -a, -um",
-   "latin": "ūndēvīcēsimus, -a, -um",
+   "latin": "ūndēvīcēsimus, ūndēvīcēsima, ūndēvīcēsimum",
    "english": {
     "raw": "nineteenth (literally one from twenty)",
     "groups": [
@@ -11693,8 +11693,8 @@
     "kind": "adjective",
     "forms": [
      "ūndēvīcēsimus",
-     "-a",
-     "-um"
+     "ūndēvīcēsima",
+     "ūndēvīcēsimum"
     ]
    },
    "source": "filled",
@@ -11708,7 +11708,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus, -a, -um",
-   "latin": "vīcēsimus, -a, -um",
+   "latin": "vīcēsimus, vīcēsima, vīcēsimum",
    "english": {
     "raw": "twentieth",
     "groups": [
@@ -11722,8 +11722,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus",
-     "-a",
-     "-um"
+     "vīcēsima",
+     "vīcēsimum"
     ]
    },
    "source": "filled",
@@ -11737,7 +11737,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus primus, -a, -um",
-   "latin": "vīcēsimus prīmus, -a, -um",
+   "latin": "vīcēsimus prīmus, vīcēsimus prīma, vīcēsimus prīmum",
    "english": {
     "raw": "twenty-first",
     "groups": [
@@ -11751,8 +11751,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus prīmus",
-     "-a",
-     "-um"
+     "vīcēsimus prīma",
+     "vīcēsimus prīmum"
     ]
    },
    "source": "filled",
@@ -11766,7 +11766,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus secundus, -a, -um",
-   "latin": "vīcēsimus secundus, -a, -um",
+   "latin": "vīcēsimus secundus, vīcēsimus secunda, vīcēsimus secundum",
    "english": {
     "raw": "twenty-second",
     "groups": [
@@ -11780,8 +11780,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus secundus",
-     "-a",
-     "-um"
+     "vīcēsimus secunda",
+     "vīcēsimus secundum"
     ]
    },
    "source": "filled",
@@ -11795,7 +11795,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus tertius, -a, -um",
-   "latin": "vīcēsimus tertius, -a, -um",
+   "latin": "vīcēsimus tertius, vīcēsimus tertia, vīcēsimus tertium",
    "english": {
     "raw": "twenty-third",
     "groups": [
@@ -11809,8 +11809,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus tertius",
-     "-a",
-     "-um"
+     "vīcēsimus tertia",
+     "vīcēsimus tertium"
     ]
    },
    "source": "filled",
@@ -11824,7 +11824,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus quartus, -a, -um",
-   "latin": "vīcēsimus quārtus, -a, -um",
+   "latin": "vīcēsimus quārtus, vīcēsimus quārta, vīcēsimus quārtum",
    "english": {
     "raw": "twenty-fourth",
     "groups": [
@@ -11838,8 +11838,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus quārtus",
-     "-a",
-     "-um"
+     "vīcēsimus quārta",
+     "vīcēsimus quārtum"
     ]
    },
    "source": "filled",
@@ -11853,7 +11853,7 @@
    "chapter": 15,
    "pos": "adjective, ordinal",
    "latin_plain": "vicesimus quintus, -a, -um",
-   "latin": "vīcēsimus quīntus, -a, -um",
+   "latin": "vīcēsimus quīntus, vīcēsimus quīnta, vīcēsimus quīntum",
    "english": {
     "raw": "twenty-fifth",
     "groups": [
@@ -11867,8 +11867,8 @@
     "kind": "adjective",
     "forms": [
      "vīcēsimus quīntus",
-     "-a",
-     "-um"
+     "vīcēsimus quīnta",
+     "vīcēsimus quīntum"
     ]
    },
    "source": "filled",
@@ -12462,7 +12462,7 @@
    "chapter": 16,
    "pos": "adjective",
    "latin_plain": "iucundus, -a, -um",
-   "latin": "iūcundus, -a, -um",
+   "latin": "iūcundus, iūcunda, iūcundum",
    "english": {
     "raw": "pleasant, delightful, agreeable, pleasing",
     "groups": [
@@ -12479,8 +12479,8 @@
     "kind": "adjective",
     "forms": [
      "iūcundus",
-     "-a",
-     "-um"
+     "iūcunda",
+     "iūcundum"
     ]
    },
    "source": "quia",
@@ -12494,7 +12494,7 @@
    "chapter": 16,
    "pos": "adjective",
    "latin_plain": "longus, -a, -um",
-   "latin": "longus, -a, -um",
+   "latin": "longus, longa, longum",
    "english": {
     "raw": "long",
     "groups": [
@@ -12508,8 +12508,8 @@
     "kind": "adjective",
     "forms": [
      "longus",
-     "-a",
-     "-um"
+     "longa",
+     "longum"
     ]
    },
    "source": "quia",
@@ -12747,7 +12747,7 @@
    "chapter": 17,
    "pos": "adjective",
    "latin_plain": "caecus, -a, -um",
-   "latin": "caecus, -a, -um",
+   "latin": "caecus, caeca, caecum",
    "english": {
     "raw": "blind",
     "groups": [
@@ -12761,8 +12761,8 @@
     "kind": "adjective",
     "forms": [
      "caecus",
-     "-a",
-     "-um"
+     "caeca",
+     "caecum"
     ]
    },
    "source": "quia",
@@ -12918,7 +12918,7 @@
    "chapter": 17,
    "pos": "verb (3)",
    "latin_plain": "admitto, admittere, admisi, admissum",
-   "latin": "admittō, -mittere, -mīsī, -missum",
+   "latin": "admittō, admittere, admīsī, admissum",
    "english": {
     "raw": "to admit, receive, let in",
     "groups": [
@@ -12938,15 +12938,15 @@
       "exists": true
      },
      {
-      "text": "-mittere",
+      "text": "admittere",
       "exists": true
      },
      {
-      "text": "-mīsī",
+      "text": "admīsī",
       "exists": true
      },
      {
-      "text": "-missum",
+      "text": "admissum",
       "exists": true
      }
     ]
@@ -13138,7 +13138,7 @@
    "chapter": 17,
    "pos": "verb (3i)",
    "latin_plain": "incipio, incipere, incepi, inceptum",
-   "latin": "incipiō, -cipere, -cēpī, -ceptum",
+   "latin": "incipiō, incipere, incēpī, inceptum",
    "english": {
     "raw": "to begin",
     "groups": [
@@ -13156,15 +13156,15 @@
       "exists": true
      },
      {
-      "text": "-cipere",
+      "text": "incipere",
       "exists": true
      },
      {
-      "text": "-cēpī",
+      "text": "incēpī",
       "exists": true
      },
      {
-      "text": "-ceptum",
+      "text": "inceptum",
       "exists": true
      }
     ]
@@ -13508,7 +13508,7 @@
    "chapter": 18,
    "pos": "adjective",
    "latin_plain": "clarus, -a, -um",
-   "latin": "clārus, -a, -um",
+   "latin": "clārus, clāra, clārum",
    "english": {
     "raw": "clear, bright; renowned, famous, illustrious",
     "groups": [
@@ -13528,8 +13528,8 @@
     "kind": "adjective",
     "forms": [
      "clārus",
-     "-a",
-     "-um"
+     "clāra",
+     "clārum"
     ]
    },
    "source": "quia",
@@ -14146,7 +14146,7 @@
    "chapter": 19,
    "pos": "adjective",
    "latin_plain": "certus, -a, -um",
-   "latin": "certus, -a, -um",
+   "latin": "certus, certa, certum",
    "english": {
     "raw": "definite, sure, certain, reliable",
     "groups": [
@@ -14163,8 +14163,8 @@
     "kind": "adjective",
     "forms": [
      "certus",
-     "-a",
-     "-um"
+     "certa",
+     "certum"
     ]
    },
    "source": "quia",
@@ -14980,7 +14980,7 @@
    "chapter": 20,
    "pos": "verb (3)",
    "latin_plain": "defendo, defendere, defendi, defensum",
-   "latin": "dēfendō, -fendere, -fendī, -fēnsum",
+   "latin": "dēfendō, dēfendere, dēfendī, dēfēnsum",
    "english": {
     "raw": "to ward off; defend, protect",
     "groups": [
@@ -15002,15 +15002,15 @@
       "exists": true
      },
      {
-      "text": "-fendere",
+      "text": "dēfendere",
       "exists": true
      },
      {
-      "text": "-fendī",
+      "text": "dēfendī",
       "exists": true
      },
      {
-      "text": "-fēnsum",
+      "text": "dēfēnsum",
       "exists": true
      }
     ]
@@ -15026,7 +15026,7 @@
    "chapter": 20,
    "pos": "verb (3)",
    "latin_plain": "discedo, discedere, discessi, discessum",
-   "latin": "discēdō, -cēdere, -cessī, -cessum",
+   "latin": "discēdō, discēdere, discessī, discessum",
    "english": {
     "raw": "to go away, depart",
     "groups": [
@@ -15045,15 +15045,15 @@
       "exists": true
      },
      {
-      "text": "-cēdere",
+      "text": "discēdere",
       "exists": true
      },
      {
-      "text": "-cessī",
+      "text": "discessī",
       "exists": true
      },
      {
-      "text": "-cessum",
+      "text": "discessum",
       "exists": true
      }
     ]
@@ -15111,7 +15111,7 @@
    "chapter": 20,
    "pos": "verb (2)",
    "latin_plain": "prohibeo, prohibere, prohibui, prohibitum",
-   "latin": "prohibeō, -hibēre, -hibuī, -hibitum",
+   "latin": "prohibeō, prohibēre, prohibuī, prohibitum",
    "english": {
     "raw": "to keep (back), prevent, hinder, restrain, prohibit",
     "groups": [
@@ -15135,15 +15135,15 @@
       "exists": true
      },
      {
-      "text": "-hibēre",
+      "text": "prohibēre",
       "exists": true
      },
      {
-      "text": "-hibuī",
+      "text": "prohibuī",
       "exists": true
      },
      {
-      "text": "-hibitum",
+      "text": "prohibitum",
       "exists": true
      }
     ]
@@ -15506,7 +15506,7 @@
    "chapter": 21,
    "pos": "noun (2)",
    "latin_plain": "vicinus, -i, m.",
-   "latin": "vīcīnus, vīcīnī, m., vīcīna, -ae, f.",
+   "latin": "vīcīnus, vīcīnī, m., vīcīna, vīcīnae, f.",
    "english": {
     "raw": "neighbor",
     "groups": [
@@ -15677,7 +15677,7 @@
    "chapter": 21,
    "pos": "verb (2)",
    "latin_plain": "contineo, continere, continui, contentum",
-   "latin": "contineō, -tinēre, -tinuī, -tentum",
+   "latin": "contineō, continēre, continuī, contentum",
    "english": {
     "raw": "to hold together, contain, keep, enclose, restrain",
     "groups": [
@@ -15699,15 +15699,15 @@
       "exists": true
      },
      {
-      "text": "-tinēre",
+      "text": "continēre",
       "exists": true
      },
      {
-      "text": "-tinuī",
+      "text": "continuī",
       "exists": true
      },
      {
-      "text": "-tentum",
+      "text": "contentum",
       "exists": true
      }
     ]
@@ -15854,7 +15854,7 @@
    "chapter": 21,
    "pos": "verb (3)",
    "latin_plain": "relinquo, relinquere, reliqui, relictum",
-   "latin": "relinquō, -linquere, -līquī, -lictum",
+   "latin": "relinquō, relinquere, relīquī, relictum",
    "english": {
     "raw": "to leave behind, leave, abandon, desert",
     "groups": [
@@ -15875,15 +15875,15 @@
       "exists": true
      },
      {
-      "text": "-linquere",
+      "text": "relinquere",
       "exists": true
      },
      {
-      "text": "-līquī",
+      "text": "relīquī",
       "exists": true
      },
      {
-      "text": "-lictum",
+      "text": "relictum",
       "exists": true
      }
     ]
@@ -16192,7 +16192,7 @@
    "chapter": 22,
    "pos": "adjective",
    "latin_plain": "aequus, -a, -um",
-   "latin": "aequus, -a, -um",
+   "latin": "aequus, aequa, aequum",
    "english": {
     "raw": "level, even; calm; equal, just; favorable",
     "groups": [
@@ -16217,8 +16217,8 @@
     "kind": "adjective",
     "forms": [
      "aequus",
-     "-a",
-     "-um"
+     "aequa",
+     "aequum"
     ]
    },
    "source": "quia",
@@ -16262,7 +16262,7 @@
    "chapter": 22,
    "pos": "adjective",
    "latin_plain": "incertus, -a, -um",
-   "latin": "incertus, -a, -um",
+   "latin": "incertus, incerta, incertum",
    "english": {
     "raw": "uncertain, unsure, doubtful",
     "groups": [
@@ -16278,8 +16278,8 @@
     "kind": "adjective",
     "forms": [
      "incertus",
-     "-a",
-     "-um"
+     "incerta",
+     "incertum"
     ]
    },
    "source": "quia",
@@ -16293,7 +16293,7 @@
    "chapter": 22,
    "pos": "adjective",
    "latin_plain": "Latinus, -a, -um",
-   "latin": "Latīnus, -a, -um",
+   "latin": "Latīnus, Latīna, Latīnum",
    "english": {
     "raw": "Latin",
     "groups": [
@@ -16307,8 +16307,8 @@
     "kind": "adjective",
     "forms": [
      "Latīnus",
-     "-a",
-     "-um"
+     "Latīna",
+     "Latīnum"
     ]
    },
    "source": "quia",
@@ -16322,7 +16322,7 @@
    "chapter": 22,
    "pos": "adjective",
    "latin_plain": "medius, -a, -um",
-   "latin": "medius, -a, -um",
+   "latin": "medius, media, medium",
    "english": {
     "raw": "middle",
     "groups": [
@@ -16336,8 +16336,8 @@
     "kind": "adjective",
     "forms": [
      "medius",
-     "-a",
-     "-um"
+     "media",
+     "medium"
     ]
    },
    "source": "quia",
@@ -16480,7 +16480,7 @@
    "chapter": 22,
    "pos": "verb (3i)",
    "latin_plain": "eripio, eripere, eripui, ereptum",
-   "latin": "ēripiō, -ripere, -ripuī, -reptum",
+   "latin": "ēripiō, ēripere, ēripuī, ēreptum",
    "english": {
     "raw": "to snatch away, take away; rescue",
     "groups": [
@@ -16502,15 +16502,15 @@
       "exists": true
      },
      {
-      "text": "-ripere",
+      "text": "ēripere",
       "exists": true
      },
      {
-      "text": "-ripuī",
+      "text": "ēripuī",
       "exists": true
      },
      {
-      "text": "-reptum",
+      "text": "ēreptum",
       "exists": true
      }
     ]
@@ -16917,7 +16917,7 @@
    "chapter": 23,
    "pos": "adjective",
    "latin_plain": "magnanimus, -a, -um",
-   "latin": "magnanimus, -a, -um",
+   "latin": "magnanimus, magnanima, magnanimum",
    "english": {
     "raw": "great-hearted, brave, magnanimous",
     "groups": [
@@ -16933,8 +16933,8 @@
     "kind": "adjective",
     "forms": [
      "magnanimus",
-     "-a",
-     "-um"
+     "magnanima",
+     "magnanimum"
     ]
    },
    "source": "quia",
@@ -17191,7 +17191,7 @@
    "chapter": 23,
    "pos": "verb (3)",
    "latin_plain": "opprimo, opprimere, oppressi, oppressum",
-   "latin": "opprimō, -primere, -pressī, -pressum",
+   "latin": "opprimō, opprimere, oppressī, oppressum",
    "english": {
     "raw": "to suppress, overwhelm, overpower, check",
     "groups": [
@@ -17212,15 +17212,15 @@
       "exists": true
      },
      {
-      "text": "-primere",
+      "text": "opprimere",
       "exists": true
      },
      {
-      "text": "-pressī",
+      "text": "oppressī",
       "exists": true
      },
      {
-      "text": "-pressum",
+      "text": "oppressum",
       "exists": true
      }
     ]
@@ -17429,7 +17429,7 @@
    "chapter": 24,
    "pos": "noun (2)",
    "latin_plain": "servus, -i, m.",
-   "latin": "servus, servī, m., and serva, -ae, f.",
+   "latin": "servus, servī, m., and serva, servae, f.",
    "english": {
     "raw": "slave",
     "groups": [
@@ -17623,7 +17623,7 @@
    "chapter": 24,
    "pos": "verb (3i)",
    "latin_plain": "accipio, accipere, accepi, acceptum",
-   "latin": "accipiō, -cipere, -cēpī, -ceptum",
+   "latin": "accipiō, accipere, accēpī, acceptum",
    "english": {
     "raw": "to take (to one's self), receive, accept",
     "groups": [
@@ -17645,15 +17645,15 @@
       "exists": true
      },
      {
-      "text": "-cipere",
+      "text": "accipere",
       "exists": true
      },
      {
-      "text": "-cēpī",
+      "text": "accēpī",
       "exists": true
      },
      {
-      "text": "-ceptum",
+      "text": "acceptum",
       "exists": true
      }
     ]
@@ -17669,7 +17669,7 @@
    "chapter": 24,
    "pos": "verb (3i)",
    "latin_plain": "excipio, excipere, excepi, exceptum",
-   "latin": "excipiō, -cipere, -cēpī, -ceptum",
+   "latin": "excipiō, excipere, excēpī, exceptum",
    "english": {
     "raw": "to take out, except; take, receive, capture",
     "groups": [
@@ -17693,15 +17693,15 @@
       "exists": true
      },
      {
-      "text": "-cipere",
+      "text": "excipere",
       "exists": true
      },
      {
-      "text": "-cēpī",
+      "text": "excēpī",
       "exists": true
      },
      {
-      "text": "-ceptum",
+      "text": "exceptum",
       "exists": true
      }
     ]
@@ -17717,7 +17717,7 @@
    "chapter": 24,
    "pos": "verb (3i)",
    "latin_plain": "recipio, recipere, recepi, receptum",
-   "latin": "recipiō, -cipere, -cēpī, -ceptum",
+   "latin": "recipiō, recipere, recēpī, receptum",
    "english": {
     "raw": "to take back, regain, admit, receive",
     "groups": [
@@ -17738,15 +17738,15 @@
       "exists": true
      },
      {
-      "text": "-cipere",
+      "text": "recipere",
       "exists": true
      },
      {
-      "text": "-cēpī",
+      "text": "recēpī",
       "exists": true
      },
      {
-      "text": "-ceptum",
+      "text": "receptum",
       "exists": true
      }
     ]
@@ -17807,7 +17807,7 @@
    "chapter": 24,
    "pos": "verb (3)",
    "latin_plain": "expello, expellere, expuli, expulsum",
-   "latin": "expellō, -pellere, -pulī, -pulsum",
+   "latin": "expellō, expellere, expulī, expulsum",
    "english": {
     "raw": "to drive out, expel, banish",
     "groups": [
@@ -17827,15 +17827,15 @@
       "exists": true
      },
      {
-      "text": "-pellere",
+      "text": "expellere",
       "exists": true
      },
      {
-      "text": "-pulī",
+      "text": "expulī",
       "exists": true
      },
      {
-      "text": "-pulsum",
+      "text": "expulsum",
       "exists": true
      }
     ]
@@ -18077,7 +18077,7 @@
    "chapter": 25,
    "pos": "adjective",
    "latin_plain": "geminus, -a, -um",
-   "latin": "geminus, -a, -um",
+   "latin": "geminus, gemina, geminum",
    "english": {
     "raw": "twin",
     "groups": [
@@ -18091,8 +18091,8 @@
     "kind": "adjective",
     "forms": [
      "geminus",
-     "-a",
-     "-um"
+     "gemina",
+     "geminum"
     ]
    },
    "source": "quia",
@@ -18142,7 +18142,7 @@
    "chapter": 25,
    "pos": "adjective",
    "latin_plain": "ultimus, -a, -um",
-   "latin": "ultimus, -a, -um",
+   "latin": "ultimus, ultima, ultimum",
    "english": {
     "raw": "farthest, extreme; last, final",
     "groups": [
@@ -18161,8 +18161,8 @@
     "kind": "adjective",
     "forms": [
      "ultimus",
-     "-a",
-     "-um"
+     "ultima",
+     "ultimum"
     ]
    },
    "source": "quia",
@@ -18483,7 +18483,7 @@
    "chapter": 25,
    "pos": "verb (3i)",
    "latin_plain": "patefacio, patefacere, patefeci, patefactum",
-   "latin": "patefaciō, -facere, -fēcī, -factum",
+   "latin": "patefaciō, patefacere, patefēcī, patefactum",
    "english": {
     "raw": "to make open, open; disclose, expose",
     "groups": [
@@ -18506,15 +18506,15 @@
       "exists": true
      },
      {
-      "text": "-facere",
+      "text": "patefacere",
       "exists": true
      },
      {
-      "text": "-fēcī",
+      "text": "patefēcī",
       "exists": true
      },
      {
-      "text": "-factum",
+      "text": "patefactum",
       "exists": true
      }
     ]
@@ -18623,7 +18623,7 @@
    "chapter": 25,
    "pos": "verb (3i)",
    "latin_plain": "suscipio, suscipere, suscepi, susceptum",
-   "latin": "suscipiō, -cipere, -cēpī, -ceptum (sub + capiō)",
+   "latin": "suscipiō, suscipere, suscēpī, susceptum (sub + capiō)",
    "english": {
     "raw": "to undertake",
     "groups": [
@@ -18641,15 +18641,15 @@
       "exists": true
      },
      {
-      "text": "-cipere",
+      "text": "suscipere",
       "exists": true
      },
      {
-      "text": "-cēpī",
+      "text": "suscēpī",
       "exists": true
      },
      {
-      "text": "-ceptum",
+      "text": "susceptum",
       "exists": true
      }
     ]
@@ -18954,7 +18954,7 @@
    "chapter": 26,
    "pos": "adjective",
    "latin_plain": "pudicus, -a, -um",
-   "latin": "pudīcus, -a, -um",
+   "latin": "pudīcus, pudīca, pudīcum",
    "english": {
     "raw": "modest, chaste",
     "groups": [
@@ -18969,8 +18969,8 @@
     "kind": "adjective",
     "forms": [
      "pudīcus",
-     "-a",
-     "-um"
+     "pudīca",
+     "pudīcum"
     ]
    },
    "source": "quia",
@@ -18984,7 +18984,7 @@
    "chapter": 26,
    "pos": "adjective",
    "latin_plain": "superbus, -a, -um",
-   "latin": "superbus, -a, -um",
+   "latin": "superbus, superba, superbum",
    "english": {
     "raw": "arrogant, overbearing, haughty, proud",
     "groups": [
@@ -19001,8 +19001,8 @@
     "kind": "adjective",
     "forms": [
      "superbus",
-     "-a",
-     "-um"
+     "superba",
+     "superbum"
     ]
    },
    "source": "quia",
@@ -19081,7 +19081,7 @@
    "chapter": 26,
    "pos": "adjective",
    "latin_plain": "urbanus, -a, -um",
-   "latin": "urbānus, -a, -um",
+   "latin": "urbānus, urbāna, urbānum",
    "english": {
     "raw": "of the city, urban, urbane, elegant",
     "groups": [
@@ -19098,8 +19098,8 @@
     "kind": "adjective",
     "forms": [
      "urbānus",
-     "-a",
-     "-um"
+     "urbāna",
+     "urbānum"
     ]
    },
    "source": "quia",
@@ -19507,7 +19507,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "primus, -a, -um",
-   "latin": "prīmus, -a, -um",
+   "latin": "prīmus, prīma, prīmum",
    "english": {
     "raw": "first, foremost, chief, principal",
     "groups": [
@@ -19524,8 +19524,8 @@
     "kind": "adjective",
     "forms": [
      "prīmus",
-     "-a",
-     "-um"
+     "prīma",
+     "prīmum"
     ]
    },
    "source": "quia",
@@ -19601,7 +19601,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "superus, -a, -um",
-   "latin": "superus, -a, -um",
+   "latin": "superus, supera, superum",
    "english": {
     "raw": "above, upper",
     "groups": [
@@ -19616,8 +19616,8 @@
     "kind": "adjective",
     "forms": [
      "superus",
-     "-a",
-     "-um"
+     "supera",
+     "superum"
     ]
    },
    "source": "quia",
@@ -19829,7 +19829,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "optimus, -a, -um",
-   "latin": "optimus, -a, -um",
+   "latin": "optimus, optima, optimum",
    "english": {
     "raw": "best",
     "groups": [
@@ -19843,8 +19843,8 @@
     "kind": "adjective",
     "forms": [
      "optimus",
-     "-a",
-     "-um"
+     "optima",
+     "optimum"
     ]
    },
    "source": "filled",
@@ -19858,7 +19858,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "maximus, -a, -um",
-   "latin": "maximus, -a, -um",
+   "latin": "maximus, maxima, maximum",
    "english": {
     "raw": "greatest",
     "groups": [
@@ -19872,8 +19872,8 @@
     "kind": "adjective",
     "forms": [
      "maximus",
-     "-a",
-     "-um"
+     "maxima",
+     "maximum"
     ]
    },
    "source": "filled",
@@ -19887,7 +19887,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "pessimus, -a, -um",
-   "latin": "pessimus, -a, -um",
+   "latin": "pessimus, pessima, pessimum",
    "english": {
     "raw": "worst",
     "groups": [
@@ -19901,8 +19901,8 @@
     "kind": "adjective",
     "forms": [
      "pessimus",
-     "-a",
-     "-um"
+     "pessima",
+     "pessimum"
     ]
    },
    "source": "filled",
@@ -19916,7 +19916,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "plurimus, -a, -um",
-   "latin": "plūrimus, -a, -um",
+   "latin": "plūrimus, plūrima, plūrimum",
    "english": {
     "raw": "most",
     "groups": [
@@ -19930,8 +19930,8 @@
     "kind": "adjective",
     "forms": [
      "plūrimus",
-     "-a",
-     "-um"
+     "plūrima",
+     "plūrimum"
     ]
    },
    "source": "filled",
@@ -19945,7 +19945,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "minimus, -a, -um",
-   "latin": "minimus, -a, -um",
+   "latin": "minimus, minima, minimum",
    "english": {
     "raw": "smallest",
     "groups": [
@@ -19959,8 +19959,8 @@
     "kind": "adjective",
     "forms": [
      "minimus",
-     "-a",
-     "-um"
+     "minima",
+     "minimum"
     ]
    },
    "source": "filled",
@@ -19974,7 +19974,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "summus, -a, -um",
-   "latin": "summus, -a, -um",
+   "latin": "summus, summa, summum",
    "english": {
     "raw": "highest, furthest",
     "groups": [
@@ -19989,8 +19989,8 @@
     "kind": "adjective",
     "forms": [
      "summus",
-     "-a",
-     "-um"
+     "summa",
+     "summum"
     ]
    },
    "source": "filled",
@@ -20004,7 +20004,7 @@
    "chapter": 27,
    "pos": "adjective",
    "latin_plain": "supremus, -a, -um",
-   "latin": "suprēmus, -a, -um",
+   "latin": "suprēmus, suprēma, suprēmum",
    "english": {
     "raw": "highest, last",
     "groups": [
@@ -20019,8 +20019,8 @@
     "kind": "adjective",
     "forms": [
      "suprēmus",
-     "-a",
-     "-um"
+     "suprēma",
+     "suprēmum"
     ]
    },
    "source": "filled",
@@ -20322,7 +20322,7 @@
    "chapter": 28,
    "pos": "adjective",
    "latin_plain": "mortuus, -a, -um",
-   "latin": "mortuus, -a, -um",
+   "latin": "mortuus, mortua, mortuum",
    "english": {
     "raw": "dead",
     "groups": [
@@ -20336,8 +20336,8 @@
     "kind": "adjective",
     "forms": [
      "mortuus",
-     "-a",
-     "-um"
+     "mortua",
+     "mortuum"
     ]
    },
    "source": "filled",
@@ -20894,7 +20894,7 @@
    "chapter": 29,
    "pos": "adjective",
    "latin_plain": "dignus, -a, -um",
-   "latin": "dignus, -a, -um",
+   "latin": "dignus, digna, dignum",
    "english": {
     "raw": "worthy, worthy of",
     "groups": [
@@ -20909,8 +20909,8 @@
     "kind": "adjective",
     "forms": [
      "dignus",
-     "-a",
-     "-um"
+     "digna",
+     "dignum"
     ]
    },
    "source": "filled",
@@ -20924,7 +20924,7 @@
    "chapter": 29,
    "pos": "adjective",
    "latin_plain": "durus, -a, -um",
-   "latin": "dūrus, -a, -um",
+   "latin": "dūrus, dūra, dūrum",
    "english": {
     "raw": "hard, harsh, rough, stern, unfeeling, hardy, difficult",
     "groups": [
@@ -20944,8 +20944,8 @@
     "kind": "adjective",
     "forms": [
      "dūrus",
-     "-a",
-     "-um"
+     "dūra",
+     "dūrum"
     ]
    },
    "source": "filled",
@@ -20959,7 +20959,7 @@
    "chapter": 29,
    "pos": "adjective",
    "latin_plain": "tantus, -a, -um",
-   "latin": "tantus, -a, -um",
+   "latin": "tantus, tanta, tantum",
    "english": {
     "raw": "so large, so great, of such a size",
     "groups": [
@@ -20975,8 +20975,8 @@
     "kind": "adjective",
     "forms": [
      "tantus",
-     "-a",
-     "-um"
+     "tanta",
+     "tantum"
     ]
    },
    "source": "filled",
@@ -21520,7 +21520,7 @@
    "chapter": 30,
    "pos": "adjective",
    "latin_plain": "ceteri, -ae, -a",
-   "latin": "cēterī, -ae, -a",
+   "latin": "cēterī, cēterae, cētera",
    "english": {
     "raw": "the remaining, the rest, the other, all the others (always plural)",
     "groups": [
@@ -21539,8 +21539,8 @@
     "kind": "adjective",
     "forms": [
      "cēterī",
-     "-ae",
-     "-a"
+     "cēterae",
+     "cētera"
     ]
    },
    "source": "filled",
@@ -21554,7 +21554,7 @@
    "chapter": 30,
    "pos": "adjective",
    "latin_plain": "quantus, -a, -um",
-   "latin": "quantus, -a, -um",
+   "latin": "quantus, quanta, quantum",
    "english": {
     "raw": "how large, how great, how much",
     "groups": [
@@ -21570,8 +21570,8 @@
     "kind": "adjective",
     "forms": [
      "quantus",
-     "-a",
-     "-um"
+     "quanta",
+     "quantum"
     ]
    },
    "source": "filled",
@@ -21585,7 +21585,7 @@
    "chapter": 30,
    "pos": "adjective",
    "latin_plain": "ridiculus, -a, -um",
-   "latin": "rīdiculus, -a, -um",
+   "latin": "rīdiculus, rīdicula, rīdiculum",
    "english": {
     "raw": "laughable, ridiculous",
     "groups": [
@@ -21600,8 +21600,8 @@
     "kind": "adjective",
     "forms": [
      "rīdiculus",
-     "-a",
-     "-um"
+     "rīdicula",
+     "rīdiculum"
     ]
    },
    "source": "filled",
@@ -21615,7 +21615,7 @@
    "chapter": 30,
    "pos": "adjective",
    "latin_plain": "vivus, -a, -um",
-   "latin": "vīvus, -a, -um",
+   "latin": "vīvus, vīva, vīvum",
    "english": {
     "raw": "alive, living",
     "groups": [
@@ -21630,8 +21630,8 @@
     "kind": "adjective",
     "forms": [
      "vīvus",
-     "-a",
-     "-um"
+     "vīva",
+     "vīvum"
     ]
    },
    "source": "filled",
@@ -23976,7 +23976,7 @@
    "chapter": 33,
    "pos": "noun (2)",
    "latin_plain": "philosophus, -i, m.",
-   "latin": "philosophus, philosophī, m., and philosopha, -ae, f.",
+   "latin": "philosophus, philosophī, m., and philosopha, philosophae, f.",
    "english": {
     "raw": "philosopher",
     "groups": [
@@ -24153,7 +24153,7 @@
    "chapter": 33,
    "pos": "adjective",
    "latin_plain": "candidus, -a, -um",
-   "latin": "candidus, -a, -um",
+   "latin": "candidus, candida, candidum",
    "english": {
     "raw": "shining, bright, white; beautiful",
     "groups": [
@@ -24172,8 +24172,8 @@
     "kind": "adjective",
     "forms": [
      "candidus",
-     "-a",
-     "-um"
+     "candida",
+     "candidum"
     ]
    },
    "source": "quia",
@@ -24187,7 +24187,7 @@
    "chapter": 33,
    "pos": "adjective",
    "latin_plain": "merus, -a, -um",
-   "latin": "merus, -a, -um",
+   "latin": "merus, mera, merum",
    "english": {
     "raw": "pure, undiluted",
     "groups": [
@@ -24202,8 +24202,8 @@
     "kind": "adjective",
     "forms": [
      "merus",
-     "-a",
-     "-um"
+     "mera",
+     "merum"
     ]
    },
    "source": "quia",
@@ -24371,7 +24371,7 @@
    "chapter": 33,
    "pos": "verb (3)",
    "latin_plain": "trado, tradere, tradidi, traditum",
-   "latin": "trādō, -dere, -didī, -ditum (trāns + dō)",
+   "latin": "trādō, trādere, trādidī, trāditum (trāns + dō)",
    "english": {
     "raw": "to give over, surrender; hand down, transmit, teach",
     "groups": [
@@ -24395,15 +24395,15 @@
       "exists": true
      },
      {
-      "text": "-dere",
+      "text": "trādere",
       "exists": true
      },
      {
-      "text": "-didī",
+      "text": "trādidī",
       "exists": true
      },
      {
-      "text": "-ditum",
+      "text": "trāditum",
       "exists": true
      }
     ]
@@ -24506,7 +24506,7 @@
    "chapter": 34,
    "pos": "adjective",
    "latin_plain": "adversus, -a, -um",
-   "latin": "adversus, -a, -um",
+   "latin": "adversus, adversa, adversum",
    "english": {
     "raw": "opposite, adverse",
     "groups": [
@@ -24521,8 +24521,8 @@
     "kind": "adjective",
     "forms": [
      "adversus",
-     "-a",
-     "-um"
+     "adversa",
+     "adversum"
     ]
    },
    "source": "quia",
@@ -25034,7 +25034,7 @@
    "chapter": 34,
    "pos": "verb (3)",
    "latin_plain": "proficiscor, proficisci, profectus sum, -",
-   "latin": "proficīscor, -ficīscī, -fectus sum",
+   "latin": "proficīscor, proficīscī, profectus sum",
    "english": {
     "raw": "to set out, start",
     "groups": [
@@ -25053,11 +25053,11 @@
       "exists": true
      },
      {
-      "text": "-ficīscī",
+      "text": "proficīscī",
       "exists": true
      },
      {
-      "text": "-fectus sum",
+      "text": "profectus sum",
       "exists": true
      }
     ]
@@ -25386,7 +25386,7 @@
    "chapter": 35,
    "pos": "adjective",
    "latin_plain": "iratus, -a, -um",
-   "latin": "īrātus, -a, um",
+   "latin": "īrātus, īrāta, um",
    "english": {
     "raw": "angry",
     "groups": [
@@ -25400,7 +25400,7 @@
     "kind": "adjective",
     "forms": [
      "īrātus",
-     "-a",
+     "īrāta",
      "um"
     ]
    },
@@ -25415,7 +25415,7 @@
    "chapter": 35,
    "pos": "verb (3)",
    "latin_plain": "antepono, anteponere, anteposui, antepositum",
-   "latin": "antepōnō, -pōnere, -posuī, -positum",
+   "latin": "antepōnō, antepōnere, anteposuī, antepositum",
    "english": {
     "raw": "to put before, prefer",
     "groups": [
@@ -25434,15 +25434,15 @@
       "exists": true
      },
      {
-      "text": "-pōnere",
+      "text": "antepōnere",
       "exists": true
      },
      {
-      "text": "-posuī",
+      "text": "anteposuī",
       "exists": true
      },
      {
-      "text": "-positum",
+      "text": "antepositum",
       "exists": true
      }
     ]
@@ -25502,7 +25502,7 @@
    "chapter": 35,
    "pos": "verb (3)",
    "latin_plain": "ignosco, ignoscere, ignovi, ignotum",
-   "latin": "ignōscō, -nōscere, -nōvī, -nōtum",
+   "latin": "ignōscō, ignōscere, ignōvī, ignōtum",
    "english": {
     "raw": "to grant pardon to, forgive",
     "groups": [
@@ -25521,15 +25521,15 @@
       "exists": true
      },
      {
-      "text": "-nōscere",
+      "text": "ignōscere",
       "exists": true
      },
      {
-      "text": "-nōvī",
+      "text": "ignōvī",
       "exists": true
      },
      {
-      "text": "-nōtum",
+      "text": "ignōtum",
       "exists": true
      }
     ]
@@ -25803,7 +25803,7 @@
    "chapter": 35,
    "pos": "verb (2)",
    "latin_plain": "persuadeo, persuadere, persuasi, persuasum",
-   "latin": "persuādeō, -suādēre, -suāsī, -suāsum",
+   "latin": "persuādeō, persuādēre, persuāsī, persuāsum",
    "english": {
     "raw": "to make sweet to, persuade",
     "groups": [
@@ -25822,15 +25822,15 @@
       "exists": true
      },
      {
-      "text": "-suādēre",
+      "text": "persuādēre",
       "exists": true
      },
      {
-      "text": "-suāsī",
+      "text": "persuāsī",
       "exists": true
      },
      {
-      "text": "-suāsum",
+      "text": "persuāsum",
       "exists": true
      }
     ]
@@ -26014,7 +26014,7 @@
    "chapter": 35,
    "pos": "verb (2)",
    "latin_plain": "subrideo, subridere, subrisi, subrisum",
-   "latin": "subrīdeō, -rīdēre, -rīsī, -rīsum",
+   "latin": "subrīdeō, subrīdēre, subrīsī, subrīsum",
    "english": {
     "raw": "to smile upon, to smile down upon",
     "groups": [
@@ -26033,15 +26033,15 @@
       "exists": true
      },
      {
-      "text": "-rīdēre",
+      "text": "subrīdēre",
       "exists": true
      },
      {
-      "text": "-rīsī",
+      "text": "subrīsī",
       "exists": true
      },
      {
-      "text": "-rīsum",
+      "text": "subrīsum",
       "exists": true
      }
     ]
@@ -26588,7 +26588,7 @@
    "chapter": 36,
    "pos": "verb (irregular)",
    "latin_plain": "fio, fieri, factus sum, -",
-   "latin": "fīō, fierī,factus sum",
+   "latin": "fīō, fierī, factus sum",
    "english": {
     "raw": "to occur, happen, become; be made, be done",
     "groups": [
@@ -27072,7 +27072,7 @@
    "chapter": 37,
    "pos": "adjective",
    "latin_plain": "gratus, -a, -um",
-   "latin": "grātus, -a, -um",
+   "latin": "grātus, grāta, grātum",
    "english": {
     "raw": "pleasing, agreeable; grateful",
     "groups": [
@@ -27090,8 +27090,8 @@
     "kind": "adjective",
     "forms": [
      "grātus",
-     "-a",
-     "-um"
+     "grāta",
+     "grātum"
     ]
    },
    "source": "quia",
@@ -27105,7 +27105,7 @@
    "chapter": 37,
    "pos": "adjective",
    "latin_plain": "idoneus, -a, -um",
-   "latin": "idōneus, -a, -um",
+   "latin": "idōneus, idōnea, idōneum",
    "english": {
     "raw": "suitable, fit, appropriate",
     "groups": [
@@ -27121,8 +27121,8 @@
     "kind": "adjective",
     "forms": [
      "idōneus",
-     "-a",
-     "-um"
+     "idōnea",
+     "idōneum"
     ]
    },
    "source": "quia",
@@ -27136,7 +27136,7 @@
    "chapter": 37,
    "pos": "adjective",
    "latin_plain": "immotus, -a, -um",
-   "latin": "immōtus, -a, -um",
+   "latin": "immōtus, immōta, immōtum",
    "english": {
     "raw": "unmoved, unchanged, unrelenting",
     "groups": [
@@ -27152,8 +27152,8 @@
     "kind": "adjective",
     "forms": [
      "immōtus",
-     "-a",
-     "-um"
+     "immōta",
+     "immōtum"
     ]
    },
    "source": "quia",
@@ -27986,7 +27986,7 @@
    "chapter": 38,
    "pos": "adjective",
    "latin_plain": "firmus, -a, -um",
-   "latin": "fīrmus, -a, -um",
+   "latin": "fīrmus, fīrma, fīrmum",
    "english": {
     "raw": "firm, strong, reliable",
     "groups": [
@@ -28002,8 +28002,8 @@
     "kind": "adjective",
     "forms": [
      "fīrmus",
-     "-a",
-     "-um"
+     "fīrma",
+     "fīrmum"
     ]
    },
    "source": "quia",
@@ -28017,7 +28017,7 @@
    "chapter": 38,
    "pos": "adjective",
    "latin_plain": "infirmus, -a, -um",
-   "latin": "īnfīrmus, -a, -um",
+   "latin": "īnfīrmus, īnfīrma, īnfīrmum",
    "english": {
     "raw": "not strong, weak, feeble",
     "groups": [
@@ -28033,8 +28033,8 @@
     "kind": "adjective",
     "forms": [
      "īnfīrmus",
-     "-a",
-     "-um"
+     "īnfīrma",
+     "īnfīrmum"
     ]
    },
    "source": "quia",
@@ -28078,7 +28078,7 @@
    "chapter": 38,
    "pos": "adjective",
    "latin_plain": "pristinus, -a, -um",
-   "latin": "prīstinus, -a, -um",
+   "latin": "prīstinus, prīstina, prīstinum",
    "english": {
     "raw": "ancient; former, previous",
     "groups": [
@@ -28096,8 +28096,8 @@
     "kind": "adjective",
     "forms": [
      "prīstinus",
-     "-a",
-     "-um"
+     "prīstina",
+     "prīstinum"
     ]
    },
    "source": "quia",
@@ -28228,7 +28228,7 @@
    "chapter": 38,
    "pos": "verb (4)",
    "latin_plain": "impedio, impedire, impedivi, impeditum",
-   "latin": "impediō, -pedīre, -pedīvī, -pedītum",
+   "latin": "impediō, impedīre, impedīvī, impedītum",
    "english": {
     "raw": "to impede, hinder, prevent",
     "groups": [
@@ -28248,15 +28248,15 @@
       "exists": true
      },
      {
-      "text": "-pedīre",
+      "text": "impedīre",
       "exists": true
      },
      {
-      "text": "-pedīvī",
+      "text": "impedīvī",
       "exists": true
      },
      {
-      "text": "-pedītum",
+      "text": "impedītum",
       "exists": true
      }
     ]
@@ -28350,7 +28350,7 @@
    "chapter": 38,
    "pos": "verb (3)",
    "latin_plain": "recognosco, recognoscere, recognovi, recognitum",
-   "latin": "recognōscō, -nōscere, -nōvī, -nitum",
+   "latin": "recognōscō, recognōscere, recognōvī, recognitum",
    "english": {
     "raw": "to recognize, recollect",
     "groups": [
@@ -28369,15 +28369,15 @@
       "exists": true
      },
      {
-      "text": "-nōscere",
+      "text": "recognōscere",
       "exists": true
      },
      {
-      "text": "-nōvī",
+      "text": "recognōvī",
       "exists": true
      },
      {
-      "text": "-nitum",
+      "text": "recognitum",
       "exists": true
      }
     ]
@@ -28393,7 +28393,7 @@
    "chapter": 38,
    "pos": "verb (3)",
    "latin_plain": "suspendo, suspendere, suspendi, suspensum",
-   "latin": "suspendō, suspendere, -pendī, pēnsum",
+   "latin": "suspendō, suspendere, suspendī, suspēnsum",
    "english": {
     "raw": "to hang up, suspend; interrupt",
     "groups": [
@@ -28419,19 +28419,19 @@
       "exists": true
      },
      {
-      "text": "-pendī",
+      "text": "suspendī",
       "exists": true
      },
      {
-      "text": "pēnsum",
+      "text": "suspēnsum",
       "exists": true
      }
     ]
    },
-   "source": "quia",
+   "source": "filled",
    "needs_review": false,
    "review_reason": "",
-   "filled": false,
+   "filled": true,
    "special_sense": false
   },
   {
@@ -28621,7 +28621,7 @@
    "chapter": 39,
    "pos": "adjective",
    "latin_plain": "cupidus, -a, -um",
-   "latin": "cupidus, -a, -um",
+   "latin": "cupidus, cupida, cupidum",
    "english": {
     "raw": "desirous, eager, fond; (with gen.) desirous of, eager for",
     "groups": [
@@ -28643,8 +28643,8 @@
     "kind": "adjective",
     "forms": [
      "cupidus",
-     "-a",
-     "-um"
+     "cupida",
+     "cupidum"
     ]
    },
    "source": "quia",
@@ -28824,7 +28824,7 @@
    "chapter": 39,
    "pos": "verb (4)",
    "latin_plain": "experior, experiri, expertus sum, -",
-   "latin": "experior, -perīrī, -pertus sum",
+   "latin": "experior, experīrī, expertus sum",
    "english": {
     "raw": "to try, test, experience",
     "groups": [
@@ -28844,11 +28844,11 @@
       "exists": true
      },
      {
-      "text": "-perīrī",
+      "text": "experīrī",
       "exists": true
      },
      {
-      "text": "-pertus sum",
+      "text": "expertus sum",
       "exists": true
      }
     ]
@@ -29086,7 +29086,7 @@
    "chapter": 39,
    "pos": "verb (irregular)",
    "latin_plain": "transeo, transire, transii, transitum",
-   "latin": "trānseō, -īre, -iī, -itum",
+   "latin": "trānseō, trānsīre, trānsiī, trānsitum",
    "english": {
     "raw": "to go across, cross; pass over, ignore",
     "groups": [
@@ -29109,23 +29109,23 @@
       "exists": true
      },
      {
-      "text": "-īre",
+      "text": "trānsīre",
       "exists": true
      },
      {
-      "text": "-iī",
+      "text": "trānsiī",
       "exists": true
      },
      {
-      "text": "-itum",
+      "text": "trānsitum",
       "exists": true
      }
     ]
    },
-   "source": "quia",
+   "source": "filled",
    "needs_review": false,
    "review_reason": "",
-   "filled": false,
+   "filled": true,
    "special_sense": false
   },
   {
@@ -29386,7 +29386,7 @@
    "chapter": 40,
    "pos": "adjective",
    "latin_plain": "iustus, -a, -um",
-   "latin": "iūstus, -a, -um",
+   "latin": "iūstus, iūsta, iūstum",
    "english": {
     "raw": "just, right",
     "groups": [
@@ -29401,8 +29401,8 @@
     "kind": "adjective",
     "forms": [
      "iūstus",
-     "-a",
-     "-um"
+     "iūsta",
+     "iūstum"
     ]
    },
    "source": "quia",

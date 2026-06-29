@@ -1100,6 +1100,8 @@ if(!BASE.length){
   }
   // ask the browser to keep our data (exempt from automatic eviction where supported)
   if(typeof navigator!=="undefined" && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{});
+  // register the service worker so the app opens & runs offline (HTTPS only; file:// skips this)
+  if(typeof navigator!=="undefined" && "serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 }
 </script>
 </body>

@@ -149,7 +149,8 @@ const el = (t,a={},...kids)=>{const n=document.createElement(t);
   for(const c of kids.flat()) if(c!=null) n.append(c.nodeType?c:document.createTextNode(c));
   return n;};
 const DAY=1440; // minutes
-const todayStr = ()=> new Date().toISOString().slice(0,10);
+const todayStr = ()=>{ const d=new Date();   // LOCAL calendar day (new words reset at your midnight)
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
 
 function stripMac(s){ return (s||"").normalize("NFD").replace(/[̀-ͯ]/g,""); }
 const MACMAP={a:"ā",e:"ē",i:"ī",o:"ō",u:"ū",A:"Ā",E:"Ē",I:"Ī",O:"Ō",U:"Ū"};

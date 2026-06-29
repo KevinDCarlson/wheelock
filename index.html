@@ -709,9 +709,14 @@ function studyEL(m,it,c){
     body.append(el("label",{class:"fld"},"takes (case)"),cs);
     fields.push({kind:"prepcase",label:"case",exp:slots.case,get:()=>cs.value});
   }else if(slots.kind==="adjective"){
-    slots.forms.forEach((f,idx)=>{ const i=macInput(idx===0?"masculine":"");
-      body.append(el("label",{class:"fld"},idx===0?"forms (m, f, n …)":""),i);
-      fields.push({label:idx===0?"forms":("form "+(idx+1)),exp:f,get:()=>i.value}); });
+    const n=slots.forms.length;
+    const hints = n===3 ? ["masculine","feminine","neuter"]
+                : n===2 ? ["masc. & fem.","neuter"]
+                : slots.forms.map((_,i)=>"form "+(i+1));
+    slots.forms.forEach((f,idx)=>{ const lbl=hints[idx]||("form "+(idx+1));
+      const i=macInput(lbl);
+      body.append(el("label",{class:"fld"},lbl),i);
+      fields.push({label:lbl,exp:f,get:()=>i.value}); });
   }else{ // text: single full-citation field
     const i=macInput("full entry");
     body.append(el("label",{class:"fld"},"full entry"),i);
